@@ -1,15 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-    
+
 
 class Department(models.Model):
     """ Model for the different departments"""
     department_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     descprition = models.CharField(max_length=1000)
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -25,8 +24,6 @@ class Category(models.Model):
     )
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1000, null=True, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -43,8 +40,6 @@ class Product(models.Model):
     image_2 = models.CharField(max_length=150, null=True, blank=True)
     thumbnail = models.CharField(max_length=150, null=True, blank=True)
     display = models.SmallIntegerField()
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -107,7 +102,7 @@ class ShippingRegion(models.Model):
         return self.shipping_region
 
 
-class Customer(models.Model):
+class Customer(AbstractUser):
     """Defines the customer and their attributes"""
     customer_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
@@ -122,7 +117,9 @@ class Customer(models.Model):
     country = models.CharField(max_length=100, null=True, blank=True)
     shipping_region_id = models.ForeignKey(
         ShippingRegion,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
     )
     day_phone = models.CharField(max_length=100, null=True, blank=True)
     eve_phone = models.CharField(max_length=100, null=True, blank=True)
@@ -135,7 +132,7 @@ class Customer(models.Model):
 class Shipping(models.Model):
     shipping_id = models.AutoField(primary_key=True)
     shipping_type = models.CharField(max_length=100)
-    shipping_cost = models.DecimalField(max_digits=10, decimal_place=2)
+    shipping_cost = models.DecimalField(max_digits=10, decimal_places=2)
     shipping_region_id = models.ForeignKey(
         ShippingRegion,
         on_delete=models.CASCADE
@@ -146,7 +143,7 @@ class Tax(models.Model):
     """Defines the different tax types to be attached to orders"""
     tax_id = models.AutoField(primary_key=True)
     tax_type = models.CharField(max_length=100)
-    tax_percentage = models.DecimalField(max_digits=10, decimal_place=2)
+    tax_percentage = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.tax_type
@@ -205,7 +202,7 @@ class OrderDetail(models.Model):
     )
     attributes = models.CharField(max_length=1000)
     quantity = models.IntegerField()
-    unit_cost = models.DecimalField(max_digits=10, decimal_place=2)
+    unit_cost = models.DecimalField(max_digits=10, decimal_places=2)
 
 
 class Audit(models.Model):
@@ -238,5 +235,3 @@ class Review(models.Model):
 
     def __str__(self):
         return self.review
-
-
