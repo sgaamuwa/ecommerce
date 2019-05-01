@@ -40,6 +40,7 @@ class Product(models.Model):
     image_2 = models.CharField(max_length=150, null=True, blank=True)
     thumbnail = models.CharField(max_length=150, null=True, blank=True)
     display = models.SmallIntegerField()
+    categories = models.ManyToManyField(Category, related_name="products")
 
     def __str__(self):
         return self.name
@@ -52,7 +53,7 @@ class Attribute(models.Model):
     """
     attribute_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    products = models.ManyToManyField(Product)
+    products = models.ManyToManyField(Product, related_name="attributes")
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
@@ -135,7 +136,8 @@ class Shipping(models.Model):
     shipping_cost = models.DecimalField(max_digits=10, decimal_places=2)
     shipping_region_id = models.ForeignKey(
         ShippingRegion,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="shippings"
     )
 
 

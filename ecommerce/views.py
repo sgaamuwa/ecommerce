@@ -3,14 +3,22 @@ from rest_auth.registration.views import RegisterView
 from rest_framework.response import Response
 from rest_framework import status, generics
 from ecommerce.serializers import (
+    ShippingRegionSerializer,
     DepartmentsSerializer,
     CategorySerializer,
-    ProductSerializer
+    ShippingSerializer,
+    ProductSerializer,
+    ReviewSerializer,
+    TaxSerializer
 )
 from ecommerce.models import (
+    ShippingRegion,
     Department,
     Category,
-    Product
+    Shipping,
+    Product,
+    Review,
+    Tax
 )
 # Create your views here.
 
@@ -72,13 +80,22 @@ class CategoryDetailView(generics.RetrieveAPIView):
     serializer_class = CategorySerializer
 
 
-class CategoryDepartmentDetailView(generics.ListAPIView):
+class CategoryDepartmentListView(generics.ListAPIView):
     """View to return categories within a specific department"""
     serializer_class = CategorySerializer
 
     def get_queryset(self):
         department_id = self.kwargs.get("department_id")
         return Category.objects.filter(department_id=department_id)
+
+
+class CategoryProductListView(generics.ListAPIView):
+    """View to return categories attached to a particular product"""
+    serializer_class = CategorySerializer
+
+    def get_queryset(self):
+        product_id = self.kwargs.get("product_id")
+        return Category.objects.filter(products__product_id=product_id)
 
 
 class ProductListView(generics.ListAPIView):
@@ -102,3 +119,100 @@ class ProductListView(generics.ListAPIView):
             "rows": serializer.data
         }
         return Response(data)
+
+
+class ProductDetailView(generics.RetrieveAPIView):
+    """View to return a single product based on it's id"""
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductCategoryListView(generics.ListAPIView):
+    """View to return products in a given category"""
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        category_id = self.kwargs.get("category_id")
+        return Product.objects.filter(categories=category_id)
+
+    def get(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        count = queryset.count()
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        data = {
+            "count": count,
+            "rows": serializer.data
+        }
+        return Response(data)
+
+
+class ProductDepartmentListView(generics.ListAPIView):
+    """View to return the products within a certain department"""
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        department_id = self.kwargs.get("department_id")
+        categories = Category.objects.filter(department_id=department_id)
+        return Product.objects.filter(categories__in=categories)
+
+    def get(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        count = queryset.count()
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        data = {
+            "count": count,
+            "rows": serializer.data
+        }
+        return Response(data)
+
+
+class ProductReviewListCreateView(generics.ListCreateAPIView):
+    """View that returns the reviews for a particular produc"""
+    serializer_class = ReviewSerializer
+
+    def get_queryset(self):
+        product_id = self.kwargs.get("pk")
+        reviews = Product.objects.get(product_id=product_id).reviews.all()
+        return Review.objects.filter(review_id__in=reviews)
+
+    def perform_create(self, serializer):
+        product_id = self.kwargs.get("pk")
+        serializer.save(product_id=product_id)
+
+
+class TaxListView(generics.ListAPIView):
+    """View that returns the taxes to be used"""
+    queryset = Tax.objects.all()
+    serializer_class = TaxSerializer
+
+
+class TaxDetailView(generics.RetrieveAPIView):
+    """View to return a particular tax"""
+    queryset = Tax.objects.all()
+    serializer_class = TaxSerializer
+
+
+class ShippingRegionListView(generics.ListAPIView):
+    """View to list the different shipping regions"""
+    queryset = ShippingRegion.objects.all()
+    serializer_class = ShippingRegionSerializer
+
+
+class ShippingRegionShippingsListView(generics.ListAPIView):
+    """View to return a list of shippings associated with a shipping region"""
+    serializer_class = ShippingSerializer
+
+    def get_queryset(self):
+        shipping_region_id = self.kwargs.get("pk")
+        shippings = ShippingRegion.objects.get(shipping_region_id=shipping_region_id).shippings
+        return shippings

@@ -11,13 +11,22 @@ from ecommerce.views import (
     DepartmentDetailView,
     CategoryListView,
     CategoryDetailView,
-    CategoryDepartmentDetailView,
-    ProductListView
+    CategoryProductListView,
+    CategoryDepartmentListView,
+    ProductListView,
+    ProductDetailView,
+    ProductCategoryListView,
+    ProductDepartmentListView,
+    ProductReviewListCreateView,
+    TaxListView,
+    TaxDetailView,
+    ShippingRegionListView,
+    ShippingRegionShippingsListView
 )
 
 urlpatterns = [
-    url(r'^customer/$', CustomRegisterView.as_view()),
-    url(r'^customer/', include('rest_auth.urls')),
+    url(r'^customers/$', CustomRegisterView.as_view()),
+    url(r'^customers/', include('rest_auth.urls')),
     url(r'^token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     url(r'^token/refresh/', TokenRefreshView.as_view()),
     re_path(r'^account-confirm-email/', VerifyEmailView.as_view()),
@@ -32,7 +41,31 @@ urlpatterns = [
     url(r'^categories/(?P<pk>[0-9]+)', CategoryDetailView.as_view()),
     url(
         r'^categories/inDepartment/(?P<department_id>[0-9]+)',
-        CategoryDepartmentDetailView.as_view()
+        CategoryDepartmentListView.as_view()
     ),
-    url(r'^products/$', ProductListView.as_view())
+    url(
+        r'^categories/inProduct/(?P<product_id>[0-9]+)',
+        CategoryProductListView.as_view()
+    ),
+    url(r'^products/$', ProductListView.as_view()),
+    url(r'^products/(?P<pk>[0-9]+)/$', ProductDetailView.as_view()),
+    url(
+        r'^products/inCategory/(?P<category_id>[0-9]+)',
+        ProductCategoryListView.as_view()
+    ),
+    url(
+        r'^products/inDepartment/(?P<department_id>[0-9]+)',
+        ProductDepartmentListView.as_view()
+    ),
+    url(
+        r'^products/(?P<pk>[0-9]+)/reviews/$',
+        ProductReviewListCreateView.as_view()
+    ),
+    url(r'^tax/$', TaxListView.as_view()),
+    url(r'^tax/(?P<pk>[0-9]+)', TaxDetailView.as_view()),
+    url(r'^shipping/regions/$', ShippingRegionListView.as_view()),
+    url(
+        r'^shipping/regions/(?P<pk>[0-9]+)',
+        ShippingRegionShippingsListView.as_view()
+    )
 ]
