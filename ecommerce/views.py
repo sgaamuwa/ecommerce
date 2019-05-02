@@ -1,7 +1,12 @@
 # from django.shortcuts import render
+from django.conf import settings
+from allauth.account import app_settings as allauth_settings
 from rest_auth.registration.views import RegisterView
 from rest_framework.response import Response
-from rest_framework import status, generics
+from rest_framework import generics, status
+from rest_auth.app_settings import (TokenSerializer,
+                                    JWTSerializer,
+                                    create_token)
 from ecommerce.serializers import (
     ShippingRegionSerializer,
     DepartmentsSerializer,
@@ -12,10 +17,10 @@ from ecommerce.serializers import (
     TaxSerializer
 )
 from ecommerce.models import (
+    Customer,
     ShippingRegion,
     Department,
     Category,
-    Shipping,
     Product,
     Review,
     Tax
@@ -24,15 +29,21 @@ from ecommerce.models import (
 
 
 class CustomRegisterView(RegisterView):
-    # serializer_class = RegistrationSerializer
+    queryset = Customer.objects.all()
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
-
-        return Response(self.get_response_data(user),
+        data = {
+            "customer": {
+                "schema": self.get_response_data(user)['user']
+            },
+            "accessToken": "Bearer "+self.get_response_data(user)['token'],
+            "expires_in": "24h"
+        }
+        return Response(data,
                         status=status.HTTP_201_CREATED,
                         headers=headers)
 
