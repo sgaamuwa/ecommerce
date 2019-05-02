@@ -115,6 +115,10 @@ REST_FRAMEWORK = {
 REST_USE_JWT = True
 
 REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'ecommerce.serializers.CustomerSerializer'
+}
+
+REST_AUTH_REGISTER_SERIALIZERS = {
     'REGISTER_SERIALIZER': 'ecommerce.serializers.RegistrationSerializer',
 }
 
@@ -159,3 +163,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = "ecommerce.Customer"
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+ACCOUNT_ADAPTER = 'ecommerce.adapters.ExpandAdapterResponse'
+
+

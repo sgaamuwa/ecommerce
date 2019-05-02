@@ -106,10 +106,10 @@ class ShippingRegion(models.Model):
 class Customer(AbstractUser):
     """Defines the customer and their attributes"""
     customer_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     email = models.CharField(max_length=100, unique=True)
-    password = models.CharField(max_length=50)
-    credit_card = models.TextField(null=True, blank=True)
+    password = models.CharField(max_length=100)
+    credit_card = models.TextField(max_length=255, null=True, blank=True)
     address_1 = models.CharField(max_length=100, null=True, blank=True)
     address_2 = models.CharField(max_length=100, null=True, blank=True)
     city = models.CharField(max_length=100, null=True, blank=True)
@@ -120,7 +120,8 @@ class Customer(AbstractUser):
         ShippingRegion,
         on_delete=models.CASCADE,
         null=True,
-        blank=True
+        blank=True,
+        default=1
     )
     day_phone = models.CharField(max_length=100, null=True, blank=True)
     eve_phone = models.CharField(max_length=100, null=True, blank=True)
