@@ -13,6 +13,9 @@ from ecommerce.views import (
     CategoryDetailView,
     CategoryProductListView,
     CategoryDepartmentListView,
+    AttributeListView,
+    AttributeDetailView,
+    AttributeValuesListView,
     ProductListView,
     ProductDetailView,
     ProductCategoryListView,
@@ -21,7 +24,14 @@ from ecommerce.views import (
     TaxListView,
     TaxDetailView,
     ShippingRegionListView,
-    ShippingRegionShippingsListView
+    ShippingRegionShippingsListView,
+    ShoppingCartItemCreateView,
+    ShoppingCartItemUpdateView,
+    ShoppingCartTotalAmountView,
+    ShoppingCartRetrieveCartView,
+    ShoppingCartGetSavedItemsView,
+    ShoppingCartMoveItemtoCartView,
+    ShoppingCartSaveItemForLaterView,
 )
 
 urlpatterns = [
@@ -47,6 +57,12 @@ urlpatterns = [
         r'^categories/inProduct/(?P<product_id>[0-9]+)',
         CategoryProductListView.as_view()
     ),
+    url(r'^attributes/$', AttributeListView.as_view()),
+    url(r'^attributes/(?P<pk>[0-9]+)/$', AttributeDetailView.as_view()),
+    url(
+        r'^attributes/values/(?P<attribute_id>[0-9]+)/$',
+        AttributeValuesListView.as_view()
+    ),
     url(r'^products/$', ProductListView.as_view()),
     url(r'^products/(?P<pk>[0-9]+)/$', ProductDetailView.as_view()),
     url(
@@ -67,5 +83,30 @@ urlpatterns = [
     url(
         r'^shipping/regions/(?P<pk>[0-9]+)',
         ShippingRegionShippingsListView.as_view()
+    ),
+    url(
+        r'^shoppingcart/generateUniqueId/$',
+        ShoppingCartRetrieveCartView.as_view()
+    ),
+    url(r'^shoppingcart/add', ShoppingCartItemCreateView.as_view()),
+    url(
+        r'^shoppingcart/update/(?P<pk>[0-9]+)',
+        ShoppingCartItemUpdateView.as_view()
+    ),
+    url(
+        r'^shoppingcart/moveToCart/(?P<pk>[0-9]+)',
+        ShoppingCartMoveItemtoCartView.as_view()
+    ),
+    url(
+        r'^shoppingcart/totalAmount/(?P<pk>[0-9a-f-]+)',
+        ShoppingCartTotalAmountView.as_view()
+    ),
+    url(
+        r'^shoppingcart/saveForLater/(?P<pk>[0-9]+)',
+        ShoppingCartSaveItemForLaterView.as_view()
+    ),
+    url(
+        r'^shoppingcart/getSaved/(?P<cart_id>[0-9a-f-]+)',
+        ShoppingCartGetSavedItemsView.as_view()
     )
 ]

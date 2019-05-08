@@ -1,15 +1,17 @@
 # from django.shortcuts import render
-from django.conf import settings
-from allauth.account import app_settings as allauth_settings
 from rest_auth.registration.views import RegisterView
 from rest_framework.response import Response
 from rest_framework import generics, status
-from rest_auth.app_settings import (TokenSerializer,
-                                    JWTSerializer,
-                                    create_token)
+from rest_framework.views import APIView
 from ecommerce.serializers import (
+    ShoppingCartItemUpdateSerializer,
+    ShoppingCartItemSerializer,
+    AttributeValueSerializer,
     ShippingRegionSerializer,
+    ShoppingCartSerializer,
     DepartmentsSerializer,
+    OrderDetailSerializer,
+    AttributeSerializer,
     CategorySerializer,
     ShippingSerializer,
     ProductSerializer,
@@ -18,13 +20,20 @@ from ecommerce.serializers import (
 )
 from ecommerce.models import (
     Customer,
+    ShoppingCartItem,
     ShippingRegion,
+    ShoppingCart,
     Department,
+    Attribute,
     Category,
     Product,
     Review,
+    Orders,
     Tax
 )
+from ecommerce.pagination import StandardListPagination
+from ecommerce.utils import calculateTotalAmountForCartItems
+import uuid
 # Create your views here.
 
 
@@ -53,6 +62,7 @@ class DepartmentListView(generics.ListAPIView):
 
     queryset = Department.objects.all()
     serializer_class = DepartmentsSerializer
+    pagination_class = StandardListPagination
 
 
 class DepartmentDetailView(generics.RetrieveAPIView):
@@ -65,6 +75,7 @@ class DepartmentDetailView(generics.RetrieveAPIView):
 class CategoryListView(generics.ListAPIView):
     """View returning the categorylist"""
     serializer_class = CategorySerializer
+    pagination_class = StandardListPagination
 
     def get_queryset(self):
         return Category.objects.all()
@@ -94,6 +105,7 @@ class CategoryDetailView(generics.RetrieveAPIView):
 class CategoryDepartmentListView(generics.ListAPIView):
     """View to return categories within a specific department"""
     serializer_class = CategorySerializer
+    pagination_class = StandardListPagination
 
     def get_queryset(self):
         department_id = self.kwargs.get("department_id")
@@ -103,15 +115,40 @@ class CategoryDepartmentListView(generics.ListAPIView):
 class CategoryProductListView(generics.ListAPIView):
     """View to return categories attached to a particular product"""
     serializer_class = CategorySerializer
+    pagination_class = StandardListPagination
 
     def get_queryset(self):
         product_id = self.kwargs.get("product_id")
         return Category.objects.filter(products__product_id=product_id)
 
 
+class AttributeListView(generics.ListAPIView):
+    """View to return the various attributes we have available"""
+    queryset = Attribute.objects.all()
+    serializer_class = AttributeSerializer
+    pagination_class = StandardListPagination
+
+
+class AttributeDetailView(generics.RetrieveAPIView):
+    """View to return a particular attribute based on the id passed in"""
+    queryset = Attribute.objects.all()
+    serializer_class = AttributeSerializer
+
+
+class AttributeValuesListView(generics.ListAPIView):
+    """View that returns the values associated with an attribute"""
+    serializer_class = AttributeValueSerializer
+    pagination_class = StandardListPagination
+
+    def get_queryset(self):
+        attribute_id = self.kwargs.get("attribute_id")
+        return Attribute.objects.get(attribute_id=attribute_id).attribute_values.all()
+
+
 class ProductListView(generics.ListAPIView):
     """View returning the categorylist"""
     serializer_class = ProductSerializer
+    pagination_class = StandardListPagination
 
     def get_queryset(self):
         return Product.objects.all()
@@ -141,6 +178,7 @@ class ProductDetailView(generics.RetrieveAPIView):
 class ProductCategoryListView(generics.ListAPIView):
     """View to return products in a given category"""
     serializer_class = ProductSerializer
+    pagination_class = StandardListPagination
 
     def get_queryset(self):
         category_id = self.kwargs.get("category_id")
@@ -165,6 +203,7 @@ class ProductCategoryListView(generics.ListAPIView):
 class ProductDepartmentListView(generics.ListAPIView):
     """View to return the products within a certain department"""
     serializer_class = ProductSerializer
+    pagination_class = StandardListPagination
 
     def get_queryset(self):
         department_id = self.kwargs.get("department_id")
@@ -190,6 +229,7 @@ class ProductDepartmentListView(generics.ListAPIView):
 class ProductReviewListCreateView(generics.ListCreateAPIView):
     """View that returns the reviews for a particular produc"""
     serializer_class = ReviewSerializer
+    pagination_class = StandardListPagination
 
     def get_queryset(self):
         product_id = self.kwargs.get("pk")
@@ -205,6 +245,7 @@ class TaxListView(generics.ListAPIView):
     """View that returns the taxes to be used"""
     queryset = Tax.objects.all()
     serializer_class = TaxSerializer
+    pagination_class = StandardListPagination
 
 
 class TaxDetailView(generics.RetrieveAPIView):
@@ -217,13 +258,145 @@ class ShippingRegionListView(generics.ListAPIView):
     """View to list the different shipping regions"""
     queryset = ShippingRegion.objects.all()
     serializer_class = ShippingRegionSerializer
+    pagination_class = StandardListPagination
 
 
 class ShippingRegionShippingsListView(generics.ListAPIView):
     """View to return a list of shippings associated with a shipping region"""
     serializer_class = ShippingSerializer
+    pagination_class = StandardListPagination
 
     def get_queryset(self):
         shipping_region_id = self.kwargs.get("pk")
-        shippings = ShippingRegion.objects.get(shipping_region_id=shipping_region_id).shippings
+        shippings = ShippingRegion.objects.get(
+            shipping_region_id=shipping_region_id).shippings.all()
         return shippings
+
+
+class ShoppingCartRetrieveCartView(APIView):
+
+    def get(self, request, format=None):
+        """Generate and return the cart id for a shopping cart"""
+        cart_id = str(uuid.uuid4())
+        shopping_cart = ShoppingCart(cart_id=cart_id)
+        shopping_cart.save()
+        return Response({"cart_id": cart_id})
+
+
+class ShoppingCartItemCreateView(APIView):
+    """View to create and add an item to a shopping cart"""
+
+    def post(self, request, format=None):
+        returned_shopping_cart_id = ShoppingCart.objects.get(
+            cart_id=request.data["cart_id"]
+            ).shopping_cart_id
+        data = {
+            "shopping_cart_id": returned_shopping_cart_id,
+            "product_id": request.data["product_id"],
+            "attributes": request.data["attributes"]
+        }
+        # we need an input serializer to serialize the data coming in
+        input_serializer = ShoppingCartItemSerializer(data=data)
+        if input_serializer.is_valid():
+            input_serializer.save()
+            # we need an output serializer for the list
+            # only shopping cart items that a buy now should be returned
+            output_serializer = ShoppingCartItemSerializer(
+                ShoppingCartItem.objects.filter(buy_now=True),
+                many=True
+            )
+            return Response(
+                output_serializer.data,
+                status=status.HTTP_201_CREATED
+            )
+        return Response(
+            input_serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+
+class ShoppingCartItemUpdateView(APIView):
+    """Use this view to update an item in the shopping cart"""
+    # queryset = ShoppingCartItem.objects.all()
+    # serializer_class = ShoppingCartItemUpdateSerializer
+    def patch(self, request, pk, format=None):
+        try:
+            self.shopping_cart_item = ShoppingCartItem.objects.get(item_id=pk)
+        except ShoppingCartItem.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        # reduce the received data down to only the quantity for update
+        update_data = {key: value for key, value in request.data.items() if key == "quantity"}
+        serializer = ShoppingCartItemUpdateSerializer(
+            self.shopping_cart_item,
+            data=update_data
+        )
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ShoppingCartMoveItemtoCartView(APIView):
+    """View to move saved items back to the shopping cart"""
+
+    def get(self, request, pk, format=None):
+        try:
+            self.shopping_cart_item = ShoppingCartItem.objects.get(item_id=pk)
+        except ShoppingCartItem.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        if self.shopping_cart_item.buy_now is True:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        self.shopping_cart_item.buy_now = True
+        self.shopping_cart_item.save()
+        return Response(status=status.HTTP_200_OK)
+
+
+class ShoppingCartSaveItemForLaterView(APIView):
+    """View to move item from the cart and save it for later"""
+
+    def get(self, request, pk, format=None):
+        try:
+            self.shopping_cart_item = ShoppingCartItem.objects.get(item_id=pk)
+        except ShoppingCartItem.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        if self.shopping_cart_item.buy_now is False:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        self.shopping_cart_item.buy_now = False
+        self.shopping_cart_item.save()
+        return Response(status=status.HTTP_200_OK)
+
+
+class ShoppingCartTotalAmountView(APIView):
+    """View to return the total amount for the items in a cart"""
+
+    def get(self, request, pk, format=None):
+        try:
+            self.shopping_cart = ShoppingCart.objects.get(cart_id=pk)
+        except ShoppingCart.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        cart_items = self.shopping_cart.shopping_cart_items.filter(buy_now=True)
+        total_amount = calculateTotalAmountForCartItems(cart_items)
+        return Response(
+            {"totalAmount": total_amount},
+            status=status.HTTP_200_OK
+        )
+
+
+class ShoppingCartGetSavedItemsView(APIView):
+    """View to return the items that were saved for later in the cart"""
+    
+    def get(self, request, pk, format=None):
+        try:
+            self.shopping_cart = ShoppingCart.objects.get(cart_id=pk)
+        except ShoppingCart.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        cart_items = self.shopping_cart.shopping_cart_items.filter(buy_now=True)
+
+
+class OrdersListView(generics.ListAPIView):
+    """View to return the different orders for a user"""
+    serializer_class = OrderDetailSerializer
+
+    def get_queryset(self):
+        customer_id = self.request.user.id
+        return Orders.objects.filter(customer_id=customer_id)

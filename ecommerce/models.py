@@ -54,8 +54,6 @@ class Attribute(models.Model):
     attribute_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     products = models.ManyToManyField(Product, related_name="attributes")
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -73,8 +71,6 @@ class AttributeValue(models.Model):
         related_name="attribute_values"
     )
     value = models.CharField(max_length=100)
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.value
@@ -82,13 +78,27 @@ class AttributeValue(models.Model):
 
 class ShoppingCart(models.Model):
     """Defines the Shopping Cart as it is used"""
+    shopping_cart_id = models.AutoField(primary_key=True)
+    cart_id = models.CharField(max_length=100, unique=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
 
+
+class ShoppingCartItem(models.Model):
+    """Defines a shopping cart item"""
     item_id = models.AutoField(primary_key=True)
-    cart_id = models.CharField(max_length=32)
-    product_id = models.IntegerField()
-    attributes = models.CharField(max_length=1000)
-    quantity = models.IntegerField()
-    buy_now = models.BooleanField(default=False)
+    shopping_cart_id = models.ForeignKey(
+        ShoppingCart,
+        on_delete=models.CASCADE,
+        related_name="shopping_cart_items"
+    )
+    attributes = models.CharField(max_length=1000, null=True, blank=True)
+    quantity = models.IntegerField(null=True, blank=True, default=1)
+    buy_now = models.BooleanField(default=True)
+    product_id = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE
+    )
     added_on = models.DateTimeField(auto_now_add=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)

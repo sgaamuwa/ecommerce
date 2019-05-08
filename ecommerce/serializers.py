@@ -1,15 +1,19 @@
 from rest_framework import serializers
 from rest_auth.registration.serializers import RegisterSerializer
-from allauth.account.adapter import get_adapter
-from allauth.account.utils import setup_user_email
 from ecommerce.models import (
+    ShoppingCartItem,
+    AttributeValue,
     ShippingRegion,
+    ShoppingCart,
+    OrderDetail,
     Department,
+    Attribute,
     Category,
     Customer,
     Shipping,
     Product,
     Review,
+    Orders,
     Tax
 )
 
@@ -78,6 +82,18 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class AttributeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Attribute
+        fields = ("attribute_id", "name",)
+
+
+class AttributeValueSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AttributeValue
+        fields = ("attribute_value_id", "value",)
+
+
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -106,3 +122,39 @@ class ShippingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shipping
         fields = "__all__"
+
+
+class ShoppingCartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShoppingCart
+        fields = ("cart_id",)
+
+
+class ShoppingCartItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShoppingCartItem
+        fields = "__all__"
+
+
+class ShoppingCartItemUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShoppingCartItem
+        fields = ("quantity",)
+
+
+class OrderDetailItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderDetail
+        fields = "__all__"
+
+
+class OrderDetailSerializer(serializers.ModelSerializer):
+    order_detail_items = OrderDetailItemSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Orders
+        fields = (
+            "order_id",
+            "product",
+            "order_detail_items",
+        )
