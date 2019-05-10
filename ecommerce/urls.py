@@ -25,10 +25,13 @@ from ecommerce.views import (
     TaxDetailView,
     ShippingRegionListView,
     ShippingRegionShippingsListView,
+    ShoppingCartEmptyCart,
+    ShoppingCartItemListView,
     ShoppingCartItemCreateView,
     ShoppingCartItemUpdateView,
     ShoppingCartTotalAmountView,
     ShoppingCartRetrieveCartView,
+    ShoppingCartRemoveProductView,
     ShoppingCartGetSavedItemsView,
     ShoppingCartMoveItemtoCartView,
     ShoppingCartSaveItemForLaterView,
@@ -88,10 +91,18 @@ urlpatterns = [
         r'^shoppingcart/generateUniqueId/$',
         ShoppingCartRetrieveCartView.as_view()
     ),
-    url(r'^shoppingcart/add', ShoppingCartItemCreateView.as_view()),
+    url(r'^shoppingcart/add/$', ShoppingCartItemCreateView.as_view()),
+    url(
+        r'^shoppingcart/(?P<cart_id>[0-9a-f-]+)',
+        ShoppingCartItemListView.as_view()
+    ),
     url(
         r'^shoppingcart/update/(?P<pk>[0-9]+)',
         ShoppingCartItemUpdateView.as_view()
+    ),
+    url(
+        r'^shoppingcart/empty/(?P<cart_id>[0-9a-f-]+)',
+        ShoppingCartEmptyCart.as_view()
     ),
     url(
         r'^shoppingcart/moveToCart/(?P<pk>[0-9]+)',
@@ -106,7 +117,11 @@ urlpatterns = [
         ShoppingCartSaveItemForLaterView.as_view()
     ),
     url(
-        r'^shoppingcart/getSaved/(?P<cart_id>[0-9a-f-]+)',
+        r'^shoppingcart/getSaved/(?P<pk>[0-9a-f-]+)',
         ShoppingCartGetSavedItemsView.as_view()
+    ),
+    url(
+        r'^shoppingcart/removeProduct/(?P<pk>[0-9]+)',
+        ShoppingCartRemoveProductView.as_view()
     )
 ]

@@ -273,6 +273,15 @@ class ShippingRegionShippingsListView(generics.ListAPIView):
         return shippings
 
 
+class ShoppingCartItemListView(generics.ListAPIView):
+    """View to return the items inside a particular cart"""
+    serializer_class = ShoppingCartItemSerializer
+
+    def get_queryset(self):
+        cart_id = self.kwargs.get("cart_id")
+        return ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items
+
+
 class ShoppingCartRetrieveCartView(APIView):
 
     def get(self, request, format=None):
@@ -293,7 +302,7 @@ class ShoppingCartItemCreateView(APIView):
         data = {
             "shopping_cart_id": returned_shopping_cart_id,
             "product_id": request.data["product_id"],
-            "attributes": request.data["attributes"]
+            "attributes": request.data["attributes"],
         }
         # we need an input serializer to serialize the data coming in
         input_serializer = ShoppingCartItemSerializer(data=data)
@@ -382,15 +391,36 @@ class ShoppingCartTotalAmountView(APIView):
         )
 
 
+class ShoppingCartRemoveProductView(generics.DestroyAPIView):
+    """View to delete an item from the cart"""
+    serializer_class = ShoppingCartItemSerializer
+    queryset = ShoppingCartItem.objects.all()
+
+
 class ShoppingCartGetSavedItemsView(APIView):
     """View to return the items that were saved for later in the cart"""
-    
+
     def get(self, request, pk, format=None):
         try:
             self.shopping_cart = ShoppingCart.objects.get(cart_id=pk)
         except ShoppingCart.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        cart_items = self.shopping_cart.shopping_cart_items.filter(buy_now=True)
+        cart_items = self.shopping_cart.shopping_cart_items.filter(buy_now=False).values_list("product_id", flat=True)
+        print(cart_items)
+        serializer = ProductSerializer(
+            Product.objects.filter(product_id__in=cart_items),
+            many=True
+        )
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class ShoppingCartEmptyCart(generics.DestroyAPIView):
+    """View that deletes all the items in a cart"""
+    serializer_class = ShoppingCartItemSerializer
+
+    def get_queryset(self):
+        cart_id = self.kwargs.get("cart_id")
+        return ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items.all()
 
 
 class OrdersListView(generics.ListAPIView):

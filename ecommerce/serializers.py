@@ -131,9 +131,36 @@ class ShoppingCartSerializer(serializers.ModelSerializer):
 
 
 class ShoppingCartItemSerializer(serializers.ModelSerializer):
+    price = serializers.SerializerMethodField()
+    subtotal = serializers.SerializerMethodField()
+    name = serializers.SerializerMethodField()
+    image = serializers.SerializerMethodField()
+
     class Meta:
         model = ShoppingCartItem
-        fields = "__all__"
+        fields = (
+            'item_id',
+            'name',
+            'product_id',
+            'price',
+            'quantity',
+            'image',
+            'subtotal'
+        )
+
+    # price is not part of the item so we have to source for it
+    def get_price(self, obj):
+        return obj.product_id.price
+
+    # we need to calculate the subtotal for each of the items
+    def get_subtotal(self, obj):
+        return obj.product_id.price*obj.quantity
+
+    def get_name(self, obj):
+        return obj.product_id.name
+
+    def get_image(self, obj):
+        return obj.product_id.image
 
 
 class ShoppingCartItemUpdateSerializer(serializers.ModelSerializer):
