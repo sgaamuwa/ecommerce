@@ -53,7 +53,6 @@ class Attribute(models.Model):
     """
     attribute_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    products = models.ManyToManyField(Product, related_name="attributes")
 
     def __str__(self):
         return self.name
@@ -71,6 +70,7 @@ class AttributeValue(models.Model):
         related_name="attribute_values"
     )
     value = models.CharField(max_length=100)
+    products = models.ManyToManyField(Product, related_name="attributes")
 
     def __str__(self):
         return self.value
