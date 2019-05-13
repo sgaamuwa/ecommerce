@@ -10,7 +10,6 @@ from ecommerce.serializers import (
     ShoppingCartItemSerializer,
     AttributeValueSerializer,
     ShippingRegionSerializer,
-    ShoppingCartSerializer,
     DepartmentsSerializer,
     OrderDetailSerializer,
     AttributeSerializer,
@@ -145,7 +144,7 @@ class AttributeValuesListView(generics.ListAPIView):
 
     def get_queryset(self):
         attribute_id = self.kwargs.get("attribute_id")
-        return Attribute.objects.get(attribute_id=attribute_id).attribute_values.all()
+        return Attribute.objects.get(attribute_id=attribute_id).attribute_values.all()  # noqa: E501
 
 
 class ProductListView(generics.ListAPIView):
@@ -311,7 +310,7 @@ class ShoppingCartItemCreateView(APIView):
             "attributes": request.data["attributes"],
         }
         # check if the product already exists and increase the quantity instead
-        if ShoppingCartItem.objects.filter(product_id=request.data["product_id"]).exists():
+        if ShoppingCartItem.objects.filter(product_id=request.data["product_id"]).exists():  # noqa: E501
             item_to_update = ShoppingCartItem.objects.get(
                 product_id=request.data["product_id"]
             )
@@ -327,7 +326,7 @@ class ShoppingCartItemCreateView(APIView):
             # we need an output serializer for the list
             # only shopping cart items that a buy now should be returned
             output_serializer = ShoppingCartItemSerializer(
-                ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items.filter(buy_now=True),
+                ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items.filter(buy_now=True),  # noqa: E501
                 many=True
             )
             return Response(
@@ -350,7 +349,9 @@ class ShoppingCartItemUpdateView(APIView):
         except ShoppingCartItem.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         # reduce the received data down to only the quantity for update
-        update_data = {key: value for key, value in request.data.items() if key == "quantity"}
+        update_data = {
+            key: value for key, value in request.data.items() if key == "quantity"  # noqa: E501
+        }
         serializer = ShoppingCartItemUpdateSerializer(
             self.shopping_cart_item,
             data=update_data
@@ -399,7 +400,7 @@ class ShoppingCartTotalAmountView(APIView):
             self.shopping_cart = ShoppingCart.objects.get(cart_id=pk)
         except ShoppingCart.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        cart_items = self.shopping_cart.shopping_cart_items.filter(buy_now=True)
+        cart_items = self.shopping_cart.shopping_cart_items.filter(buy_now=True)  # noqa: E501
         total_amount = calculateTotalAmountForCartItems(cart_items)
         return Response(
             {"totalAmount": total_amount},
@@ -421,7 +422,7 @@ class ShoppingCartGetSavedItemsView(APIView):
             self.shopping_cart = ShoppingCart.objects.get(cart_id=pk)
         except ShoppingCart.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        cart_items = self.shopping_cart.shopping_cart_items.filter(buy_now=False).values_list("product_id", flat=True)
+        cart_items = self.shopping_cart.shopping_cart_items.filter(buy_now=False).values_list("product_id", flat=True)  # noqa: E501
         print(cart_items)
         serializer = ProductSerializer(
             Product.objects.filter(product_id__in=cart_items),
@@ -436,7 +437,7 @@ class ShoppingCartEmptyCart(generics.DestroyAPIView):
 
     def get_queryset(self):
         cart_id = self.kwargs.get("cart_id")
-        return ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items.all()
+        return ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items.all()  # noqa: E501
 
 
 class OrdersListView(generics.ListAPIView):
@@ -454,7 +455,7 @@ class OrdersCreateView(APIView):
     """
     def post(self, request, format=None):
         cart_id = request.data["cart_id"]
-        shopping_cart_items = ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items.filter(buy_now=True)
+        shopping_cart_items = ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items.filter(buy_now=True)  # noqa: E501
         if not shopping_cart_items:
             return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
         total_amount = calculateTotalAmountForCartItems(shopping_cart_items)
