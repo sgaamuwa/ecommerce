@@ -17,6 +17,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='orderdetail',
             name='attributes',
-            field=models.ManyToManyField(related_name='order_detail', to='ecommerce.AttributeValue'),
+            field=models.ManyToManyField(related_name='order_detail', to='ecommerce.AttributeValue'),  # noqa: E501
         ),
     ]
