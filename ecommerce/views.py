@@ -3,7 +3,9 @@ from rest_auth.registration.views import RegisterView
 from rest_framework.response import Response
 from rest_framework import generics, status
 from rest_framework.views import APIView
+from django.db import Error, transaction
 from ecommerce.serializers import (
+    ShoppingCartItemCreateSerializer,
     ShoppingCartItemUpdateSerializer,
     ShoppingCartItemSerializer,
     AttributeValueSerializer,
@@ -23,6 +25,7 @@ from ecommerce.models import (
     ShoppingCartItem,
     ShippingRegion,
     ShoppingCart,
+    OrderDetail,
     Department,
     Attribute,
     Category,
@@ -296,22 +299,35 @@ class ShoppingCartItemCreateView(APIView):
     """View to create and add an item to a shopping cart"""
 
     def post(self, request, format=None):
+        cart_id = request.data["cart_id"]
+        # the cart Id provided is not the primary key for the shopping cart
+        # we need to get the primary key to use for the relationship
         returned_shopping_cart_id = ShoppingCart.objects.get(
-            cart_id=request.data["cart_id"]
+            cart_id=cart_id
             ).shopping_cart_id
         data = {
             "shopping_cart_id": returned_shopping_cart_id,
             "product_id": request.data["product_id"],
             "attributes": request.data["attributes"],
         }
-        # we need an input serializer to serialize the data coming in
-        input_serializer = ShoppingCartItemSerializer(data=data)
-        if input_serializer.is_valid():
-            input_serializer.save()
+        # check if the product already exists and increase the quantity instead
+        if ShoppingCartItem.objects.filter(product_id=request.data["product_id"]).exists():
+            item_to_update = ShoppingCartItem.objects.get(
+                product_id=request.data["product_id"]
+            )
+            new_quantity = item_to_update.quantity + 1
+            self.serializer = ShoppingCartItemUpdateSerializer(
+                item_to_update,
+                data={"quantity": new_quantity}
+            )
+        else:
+            self.serializer = ShoppingCartItemCreateSerializer(data=data)
+        if self.serializer.is_valid():
+            self.serializer.save()
             # we need an output serializer for the list
             # only shopping cart items that a buy now should be returned
             output_serializer = ShoppingCartItemSerializer(
-                ShoppingCartItem.objects.filter(buy_now=True),
+                ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items.filter(buy_now=True),
                 many=True
             )
             return Response(
@@ -319,7 +335,7 @@ class ShoppingCartItemCreateView(APIView):
                 status=status.HTTP_201_CREATED
             )
         return Response(
-            input_serializer.errors,
+            self.serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
 
@@ -430,3 +446,42 @@ class OrdersListView(generics.ListAPIView):
     def get_queryset(self):
         customer_id = self.request.user.id
         return Orders.objects.filter(customer_id=customer_id)
+
+
+class OrdersCreateView(APIView):
+    """
+    View to create an order from a supplied cart
+    """
+    def post(self, request, format=None):
+        cart_id = request.data["cart_id"]
+        shopping_cart_items = ShoppingCart.objects.get(cart_id=cart_id).shopping_cart_items.filter(buy_now=True)
+        if not shopping_cart_items:
+            return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+        total_amount = calculateTotalAmountForCartItems(shopping_cart_items)
+
+        order = Orders.objects.create(total_amount=total_amount)
+        order.save()
+        # interate through and create the order items from the list
+        try:
+            # we need to reverse the changes if one of them fails
+            with transaction.atomic():
+                for shopping_cart_item in shopping_cart_items:
+                    order_detail = OrderDetail.create_from_shopping_cart_item(
+                        shopping_cart_item,
+                        order
+                    )
+                    order_detail.save()
+        except Error:
+            return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response(
+            {"order_id": order.order_id},
+            status=status.HTTP_201_CREATED
+        )
+
+
+class OrdersDetailView(generics.RetrieveAPIView):
+    """
+        View to return the details of an order
+    """
+    serializer_class = OrderDetailSerializer
+    queryset = Orders.objects.all()

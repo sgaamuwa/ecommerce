@@ -35,6 +35,8 @@ from ecommerce.views import (
     ShoppingCartGetSavedItemsView,
     ShoppingCartMoveItemtoCartView,
     ShoppingCartSaveItemForLaterView,
+    OrdersCreateView,
+    OrdersDetailView,
 )
 
 urlpatterns = [
@@ -123,5 +125,13 @@ urlpatterns = [
     url(
         r'^shoppingcart/removeProduct/(?P<pk>[0-9]+)',
         ShoppingCartRemoveProductView.as_view()
+    ),
+    url(
+        r'^orders/$',
+        OrdersCreateView.as_view()
+    ),
+    url(
+        r'^orders/(?P<pk>[0-9]+)',
+        OrdersDetailView.as_view()
     )
 ]
