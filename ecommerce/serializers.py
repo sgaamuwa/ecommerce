@@ -1,15 +1,19 @@
 from rest_framework import serializers
 from rest_auth.registration.serializers import RegisterSerializer
-from allauth.account.adapter import get_adapter
-from allauth.account.utils import setup_user_email
 from ecommerce.models import (
+    ShoppingCartItem,
+    AttributeValue,
     ShippingRegion,
+    ShoppingCart,
+    OrderDetail,
     Department,
+    Attribute,
     Category,
     Customer,
     Shipping,
     Product,
     Review,
+    Orders,
     Tax
 )
 
@@ -78,6 +82,18 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class AttributeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Attribute
+        fields = ("attribute_id", "name",)
+
+
+class AttributeValueSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AttributeValue
+        fields = ("attribute_value_id", "value",)
+
+
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -106,3 +122,102 @@ class ShippingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shipping
         fields = "__all__"
+
+
+class ShoppingCartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShoppingCart
+        fields = ("cart_id",)
+
+
+class ShoppingCartItemSerializer(serializers.ModelSerializer):
+    price = serializers.SerializerMethodField()
+    subtotal = serializers.SerializerMethodField()
+    name = serializers.SerializerMethodField()
+    image = serializers.SerializerMethodField()
+    attributes = serializers.SerializerMethodField()
+
+    class Meta:
+        model = ShoppingCartItem
+        fields = (
+            'item_id',
+            'name',
+            'attributes',
+            'product_id',
+            'price',
+            'quantity',
+            'image',
+            'subtotal'
+        )
+
+    # price is not part of the item so we have to source for it
+    def get_price(self, obj):
+        return obj.product_id.price
+
+    # we need to calculate the subtotal for each of the items
+    def get_subtotal(self, obj):
+        return obj.product_id.price*obj.quantity
+
+    def get_name(self, obj):
+        return obj.product_id.name
+
+    def get_image(self, obj):
+        return obj.product_id.image
+
+    def get_attributes(self, obj):
+        return [attribute.value for attribute in obj.attributes.all()]
+
+
+class ShoppingCartItemCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShoppingCartItem
+        fields = ("shopping_cart_id", "product_id", "attributes")
+
+
+class ShoppingCartItemUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShoppingCartItem
+        fields = ("quantity",)
+
+
+class OrderDetailItemSerializer(serializers.ModelSerializer):
+    subtotal = serializers.SerializerMethodField()
+    product_name = serializers.SerializerMethodField()
+    attributes = serializers.SerializerMethodField()
+
+    class Meta:
+        model = OrderDetail
+        fields = (
+            "product_id",
+            "attributes",
+            "product_name",
+            "quantity",
+            "unit_cost",
+            "subtotal"
+        )
+
+    def get_subtotal(self, obj):
+        return obj.quantity*obj.product_id.price
+
+    def get_product_name(self, obj):
+        return obj.product_id.name
+
+    def get_attributes(self, obj):
+        return [attribute.value for attribute in obj.attributes.all()]
+
+
+class OrderDetailSerializer(serializers.ModelSerializer):
+    order_details = OrderDetailItemSerializer(many=True)
+
+    class Meta:
+        model = Orders
+        fields = (
+            "order_id",
+            "order_details",
+        )
+
+
+class OrderCreationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Orders
+        fields = ("cart")

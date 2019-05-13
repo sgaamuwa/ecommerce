@@ -26,7 +26,7 @@ SECRET_KEY = '(afhkz#+ojo@nuq0fh_!e5spgv!ke&abikfiy9*prgscg-mgn*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -107,7 +107,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'EXCEPTION_HANDLER': 'ecommerce.errors.custom_exception_handler'
 }
 
 # Use JWT instead of regular tokens
@@ -167,5 +168,3 @@ AUTH_USER_MODEL = "ecommerce.Customer"
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
 ACCOUNT_ADAPTER = 'ecommerce.adapters.ExpandAdapterResponse'
-
-
