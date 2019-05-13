@@ -135,12 +135,14 @@ class ShoppingCartItemSerializer(serializers.ModelSerializer):
     subtotal = serializers.SerializerMethodField()
     name = serializers.SerializerMethodField()
     image = serializers.SerializerMethodField()
+    attributes = serializers.SerializerMethodField()
 
     class Meta:
         model = ShoppingCartItem
         fields = (
             'item_id',
             'name',
+            'attributes',
             'product_id',
             'price',
             'quantity',
@@ -162,6 +164,15 @@ class ShoppingCartItemSerializer(serializers.ModelSerializer):
     def get_image(self, obj):
         return obj.product_id.image
 
+    def get_attributes(self, obj):
+        return [attribute.value for attribute in obj.attributes.all()]
+
+
+class ShoppingCartItemCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShoppingCartItem
+        fields = ("shopping_cart_id", "product_id", "attributes")
+
 
 class ShoppingCartItemUpdateSerializer(serializers.ModelSerializer):
     class Meta:
@@ -170,18 +181,43 @@ class ShoppingCartItemUpdateSerializer(serializers.ModelSerializer):
 
 
 class OrderDetailItemSerializer(serializers.ModelSerializer):
+    subtotal = serializers.SerializerMethodField()
+    product_name = serializers.SerializerMethodField()
+    attributes = serializers.SerializerMethodField()
+
     class Meta:
         model = OrderDetail
-        fields = "__all__"
+        fields = (
+            "product_id",
+            "attributes",
+            "product_name",
+            "quantity",
+            "unit_cost",
+            "subtotal"
+        )
+
+    def get_subtotal(self, obj):
+        return obj.quantity*obj.product_id.price
+
+    def get_product_name(self, obj):
+        return obj.product_id.name
+
+    def get_attributes(self, obj):
+        return [attribute.value for attribute in obj.attributes.all()]
 
 
 class OrderDetailSerializer(serializers.ModelSerializer):
-    order_detail_items = OrderDetailItemSerializer(many=True, read_only=True)
+    order_details = OrderDetailItemSerializer(many=True)
 
     class Meta:
         model = Orders
         fields = (
             "order_id",
-            "product",
-            "order_detail_items",
+            "order_details",
         )
+
+
+class OrderCreationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Orders
+        fields = ("cart")
