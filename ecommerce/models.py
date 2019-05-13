@@ -92,7 +92,10 @@ class ShoppingCartItem(models.Model):
         on_delete=models.CASCADE,
         related_name="shopping_cart_items"
     )
-    attributes = models.CharField(max_length=1000, null=True, blank=True)
+    attributes = models.ManyToManyField(
+        AttributeValue,
+        related_name="shopping_cart_items"
+    )
     quantity = models.IntegerField(null=True, blank=True, default=1)
     buy_now = models.BooleanField(default=True)
     product_id = models.ForeignKey(
@@ -213,9 +216,25 @@ class OrderDetail(models.Model):
         Product,
         on_delete=models.CASCADE
     )
-    attributes = models.CharField(max_length=1000)
+    attributes = models.ManyToManyField(
+        AttributeValue,
+        related_name="order_detail"
+    )
     quantity = models.IntegerField()
     unit_cost = models.DecimalField(max_digits=10, decimal_places=2)
+
+    @classmethod
+    def create_from_shopping_cart_item(self, shopping_cart_item, order_id):
+        order_detail = self(
+            order_id=order_id,
+            product_id=shopping_cart_item.product_id,
+            quantity=shopping_cart_item.quantity,
+            unit_cost=shopping_cart_item.product_id.price
+        )
+        # create a model object to add the attributes before you save
+        order_detail.save()
+        order_detail.attributes.set(shopping_cart_item.attributes.all())
+        return order_detail
 
 
 class Audit(models.Model):
