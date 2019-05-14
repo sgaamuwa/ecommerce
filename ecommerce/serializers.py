@@ -100,10 +100,50 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ReviewSerializer(serializers.ModelSerializer):
+class ProductLocationsSerializer(serializers.ModelSerializer):
+    category_name = serializers.SerializerMethodField()
+    department_id = serializers.SerializerMethodField()
+    department_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Category
+        fields = (
+            "category_id",
+            "category_name",
+            "department_id",
+            "department_name"
+        )
+
+    def get_category_name(self, obj):
+        return obj.name
+
+    def get_department_id(self, obj):
+        return obj.department_id.department_id
+
+    def get_department_name(self, obj):
+        return obj.department_id.name
+
+
+class ReviewCreateSerializer(serializers.ModelSerializer):
+    customer_id = serializers.PrimaryKeyRelatedField(
+        queryset=Customer.objects.all(),
+        required=False
+    )
+
     class Meta:
         model = Review
         fields = "__all__"
+
+
+class ReviewListSerializer(serializers.ModelSerializer):
+    name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Review
+        fields = ("name", "review", "rating", "created_on")
+
+    def get_name(self, obj):
+        return obj.customer_id.name
 
 
 class TaxSerializer(serializers.ModelSerializer):

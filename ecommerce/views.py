@@ -3,20 +3,23 @@ from rest_auth.registration.views import RegisterView
 from rest_framework.response import Response
 from rest_framework import generics, status
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 from django.db import Error, transaction
 from ecommerce.serializers import (
     ShoppingCartItemCreateSerializer,
     ShoppingCartItemUpdateSerializer,
     ShoppingCartItemSerializer,
+    ProductLocationsSerializer,
     AttributeValueSerializer,
     ShippingRegionSerializer,
+    ReviewCreateSerializer,
     DepartmentsSerializer,
     OrderDetailSerializer,
+    ReviewListSerializer,
     AttributeSerializer,
     CategorySerializer,
     ShippingSerializer,
     ProductSerializer,
-    ReviewSerializer,
     TaxSerializer
 )
 from ecommerce.models import (
@@ -29,7 +32,6 @@ from ecommerce.models import (
     Attribute,
     Category,
     Product,
-    Review,
     Orders,
     Tax
 )
@@ -230,17 +232,33 @@ class ProductDepartmentListView(generics.ListAPIView):
 
 class ProductReviewListCreateView(generics.ListCreateAPIView):
     """View that returns the reviews for a particular produc"""
-    serializer_class = ReviewSerializer
+    serializer_class = ReviewCreateSerializer
     pagination_class = StandardListPagination
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         product_id = self.kwargs.get("pk")
-        reviews = Product.objects.get(product_id=product_id).reviews.all()
-        return Review.objects.filter(review_id__in=reviews)
+        return Product.objects.get(product_id=product_id).reviews.all()
 
     def perform_create(self, serializer):
         product_id = self.kwargs.get("pk")
-        serializer.save(product_id=product_id)
+        product = Product.objects.get(product_id=product_id)
+        user = self.request.user
+        serializer.save(product_id=product, customer_id=user)
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return ReviewListSerializer
+        return ReviewCreateSerializer,
+
+
+class ProductLocationsListView(generics.ListAPIView):
+    """View that returns the different categories a product is in"""
+    serializer_class = ProductLocationsSerializer
+
+    def get_queryset(self):
+        product_id = self.kwargs.get("pk")
+        return Product.objects.get(product_id=product_id).categories.all()
 
 
 class TaxListView(generics.ListAPIView):

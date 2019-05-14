@@ -19,6 +19,7 @@ from ecommerce.views import (
     ProductListView,
     ProductDetailView,
     ProductCategoryListView,
+    ProductLocationsListView,
     ProductDepartmentListView,
     ProductReviewListCreateView,
     TaxListView,
@@ -77,6 +78,10 @@ urlpatterns = [
     url(
         r'^products/inDepartment/(?P<department_id>[0-9]+)',
         ProductDepartmentListView.as_view()
+    ),
+    url(
+        r'^products/(?P<pk>[0-9]+)/locations',
+        ProductLocationsListView.as_view()
     ),
     url(
         r'^products/(?P<pk>[0-9]+)/reviews/$',
