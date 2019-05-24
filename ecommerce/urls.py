@@ -41,8 +41,16 @@ from ecommerce.views import (
 )
 
 urlpatterns = [
-    url(r'^customers/$', CustomRegisterView.as_view()),
-    url(r'^customers/', include('rest_auth.urls')),
+    url(
+        r'^customers/$',
+        CustomRegisterView.as_view(),
+        name="register_customer"
+    ),
+    url(
+        r'^customers/',
+        include('rest_auth.urls'),
+        name='login_user'
+    ),
     url(r'^token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     url(r'^token/refresh/', TokenRefreshView.as_view()),
     re_path(r'^account-confirm-email/', VerifyEmailView.as_view()),

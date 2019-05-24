@@ -10,13 +10,14 @@ from ecommerce.models import (
     Tax
 )
 from rest_framework.test import APIClient, APITestCase
-from rest_framework.authtoken.
 
 
 class BaseTestCase(APITestCase):
     """Base Test Case
-    Sets up the different users to use for testing 
+    Sets up the different users to use for testing
+    Uses fixtures to prepopulate the database for our use
     """
+    fixtures = ['fixture1']
 
     def setUp(self):
         # create two clients to use for testing
@@ -64,6 +65,4 @@ class BaseTestCase(APITestCase):
             email="samuelgaamuwa@example.com",
             password="sam7did83"
         )
-
-        # get tokens for the users
 

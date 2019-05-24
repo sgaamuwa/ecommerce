@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django_nose',
     'rest_framework',
+    'rest_framework.authtoken',
     'rest_auth',
     'rest_auth.registration',
     'allauth',
@@ -87,6 +89,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'turingdb',
+        'TEST': {
+            'NAME': 'turingtestdb'
+        },
         'USER': 'samuel',
         'PASSWORD': 'merab123',
         'HOST': 'localhost',

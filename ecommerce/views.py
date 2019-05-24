@@ -504,3 +504,12 @@ class OrdersDetailView(generics.RetrieveAPIView):
     """
     serializer_class = OrderDetailSerializer
     queryset = Orders.objects.all()
+
+
+class CustomerOrderListView(generics.ListAPIView):
+    """View to return the orders made a customer"""
+    serializer_class = OrderDetailSerializer
+
+    def get_queryset(self):
+        customer_id = self.request.user.customer_id
+        return Orders.objects.filter(customer_id=customer_id)

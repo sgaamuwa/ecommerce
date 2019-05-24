@@ -1,0 +1,3373 @@
+[
+    {
+        "model": "ecommerce.department",
+        "pk": 1,
+        "fields": {
+            "name": "Regional",
+            "descprition": "Proud of your country? Wear a T-shirt with a national symbol stamp!"
+        }
+    },
+    {
+        "model": "ecommerce.department",
+        "pk": 2,
+        "fields": {
+            "name": "Nature",
+            "descprition": "Find beautiful T-shirts with animals and flowers in our Nature department!"
+        }
+    },
+    {
+        "model": "ecommerce.department",
+        "pk": 3,
+        "fields": {
+            "name": "Seasonal",
+            "descprition": "Each time of the year has a special flavor. Our seasonal T-shirts express traditional symbols using unique postal stamp pictures."
+        }
+    },
+    {
+        "model": "ecommerce.category",
+        "pk": 1,
+        "fields": {
+            "department_id": 1,
+            "name": "French",
+            "description": "The French have always had an eye for beauty. One look at the T-shirts below and you'll see that same appreciation has been applied abundantly to their postage stamps. Below are some of our most beautiful and colorful T-shirts, so browse away! And don't forget to go all the way to the bottom - you don't want to miss any of them!"
+        }
+    },
+    {
+        "model": "ecommerce.category",
+        "pk": 2,
+        "fields": {
+            "department_id": 1,
+            "name": "Italian",
+            "description": "The full and resplendent treasure chest of art, literature, music, and science that Italy has given the world is reflected splendidly in its postal stamps. If we could, we would dedicate hundreds of T-shirts to this amazing treasure of beautiful images, but for now we will have to live with what you see here. You don't have to be Italian to love these gorgeous T-shirts, just someone who appreciates the finer things in life!"
+        }
+    },
+    {
+        "model": "ecommerce.category",
+        "pk": 3,
+        "fields": {
+            "department_id": 1,
+            "name": "Irish",
+            "description": "It was Churchill who remarked that he thought the Irish most curious because they didn't want to be English. How right he was! But then, he was half-American, wasn't he? If you have an Irish genealogy you will want these T-shirts! If you suddenly turn Irish on St. Patrick's Day, you too will want these T-shirts! Take a look at some of the coolest T-shirts we have!"
+        }
+    },
+    {
+        "model": "ecommerce.category",
+        "pk": 4,
+        "fields": {
+            "department_id": 2,
+            "name": "Animal",
+            "description": " Our ever-growing selection of beautiful animal T-shirts represents critters from everywhere, both wild and domestic. If you don't see the T-shirt with the animal you're looking for, tell us and we'll find it!"
+        }
+    },
+    {
+        "model": "ecommerce.category",
+        "pk": 5,
+        "fields": {
+            "department_id": 2,
+            "name": "Flower",
+            "description": "These unique and beautiful flower T-shirts are just the item for the gardener, flower arranger, florist, or general lover of things beautiful. Surprise the flower in your life with one of the beautiful botanical T-shirts or just get a few for yourself!"
+        }
+    },
+    {
+        "model": "ecommerce.category",
+        "pk": 6,
+        "fields": {
+            "department_id": 3,
+            "name": "Christmas",
+            "description": " Because this is a unique Christmas T-shirt that you'll only wear a few times a year, it will probably last for decades (unless some grinch nabs it from you, of course). Far into the future, after you're gone, your grandkids will pull it out and argue over who gets to wear it. What great snapshots they'll make dressed in Grandpa or Grandma's incredibly tasteful and unique Christmas T-shirt! Yes, everyone will remember you forever and what a silly goof you were when you would wear only your Santa beard and cap so you wouldn't cover up your nifty T-shirt."
+        }
+    },
+    {
+        "model": "ecommerce.category",
+        "pk": 7,
+        "fields": {
+            "department_id": 3,
+            "name": "Valentine's",
+            "description": "For the more timid, all you have to do is wear your heartfelt message to get it across. Buy one for you and your sweetie(s) today!"
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 1,
+        "fields": {
+            "name": "Arc d'Triomphe",
+            "description": "This beautiful and iconic T-shirt will no doubt lead you to your own triumph.",
+            "price": "14.99",
+            "discounted_price": "0.00",
+            "image": "arc-d-triomphe.gif",
+            "image_2": "arc-d-triomphe-2.gif",
+            "thumbnail": "arc-d-triomphe-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 2,
+        "fields": {
+            "name": "Chartres Cathedral",
+            "description": "\"The Fur Merchants\". Not all the beautiful stained glass in the great cathedrals depicts saints and angels! Lay aside your furs for the summer and wear this beautiful T-shirt!",
+            "price": "16.95",
+            "discounted_price": "15.95",
+            "image": "chartres-cathedral.gif",
+            "image_2": "chartres-cathedral-2.gif",
+            "thumbnail": "chartres-cathedral-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 3,
+        "fields": {
+            "name": "Coat of Arms",
+            "description": "There's good reason why the ship plays a prominent part on this shield!",
+            "price": "14.50",
+            "discounted_price": "0.00",
+            "image": "coat-of-arms.gif",
+            "image_2": "coat-of-arms-2.gif",
+            "thumbnail": "coat-of-arms-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 4,
+        "fields": {
+            "name": "Gallic Cock",
+            "description": "This fancy chicken is perhaps the most beloved of all French symbols. Unfortunately, there are only a few hundred left, so you'd better get your T-shirt now!",
+            "price": "18.99",
+            "discounted_price": "16.99",
+            "image": "gallic-cock.gif",
+            "image_2": "gallic-cock-2.gif",
+            "thumbnail": "gallic-cock-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 5,
+        "fields": {
+            "name": "Marianne",
+            "description": "She symbolizes the \"Triumph of the Republic\" and has been depicted many different ways in the history of France, as you will see below!",
+            "price": "15.95",
+            "discounted_price": "14.95",
+            "image": "marianne.gif",
+            "image_2": "marianne-2.gif",
+            "thumbnail": "marianne-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 6,
+        "fields": {
+            "name": "Alsace",
+            "description": "It was in this region of France that Gutenberg perfected his movable type. If he could only see what he started!",
+            "price": "16.50",
+            "discounted_price": "0.00",
+            "image": "alsace.gif",
+            "image_2": "alsace-2.gif",
+            "thumbnail": "alsace-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 7,
+        "fields": {
+            "name": "Apocalypse Tapestry",
+            "description": "One of the most famous tapestries of the Loire Valley, it dates from the 14th century. The T-shirt is of more recent vintage, however.",
+            "price": "20.00",
+            "discounted_price": "18.95",
+            "image": "apocalypse-tapestry.gif",
+            "image_2": "apocalypse-tapestry-2.gif",
+            "thumbnail": "apocalypse-tapestry-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 8,
+        "fields": {
+            "name": "Centaur",
+            "description": "There were never any lady centaurs, so these guys had to mate with nymphs and mares. No wonder they were often in such bad moods!",
+            "price": "14.99",
+            "discounted_price": "0.00",
+            "image": "centaur.gif",
+            "image_2": "centaur-2.gif",
+            "thumbnail": "centaur-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 9,
+        "fields": {
+            "name": "Corsica",
+            "description": "Borrowed from Spain, the \"Moor's head\" may have celebrated the Christians' victory over the Moslems in that country.",
+            "price": "22.00",
+            "discounted_price": "0.00",
+            "image": "corsica.gif",
+            "image_2": "corsica-2.gif",
+            "thumbnail": "corsica-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 10,
+        "fields": {
+            "name": "Haute Couture",
+            "description": "This stamp publicized the dress making industry. Use it to celebrate the T-shirt industry!",
+            "price": "15.99",
+            "discounted_price": "14.95",
+            "image": "haute-couture.gif",
+            "image_2": "haute-couture-2.gif",
+            "thumbnail": "haute-couture-thumbnail.gif",
+            "display": 3,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 11,
+        "fields": {
+            "name": "Iris",
+            "description": "Iris was the Goddess of the Rainbow, daughter of the Titans Thaumas and Electra. Are you up to this T-shirt?!",
+            "price": "17.50",
+            "discounted_price": "0.00",
+            "image": "iris.gif",
+            "image_2": "iris-2.gif",
+            "thumbnail": "iris-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 12,
+        "fields": {
+            "name": "Lorraine",
+            "description": "The largest American cemetery in France is located in Lorraine and most of the folks there still appreciate that fact.",
+            "price": "16.95",
+            "discounted_price": "0.00",
+            "image": "lorraine.gif",
+            "image_2": "lorraine-2.gif",
+            "thumbnail": "lorraine-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 13,
+        "fields": {
+            "name": "Mercury",
+            "description": "Besides being the messenger of the gods, did you know that Mercury was also the god of profit and commerce? This T-shirt is for business owners!",
+            "price": "21.99",
+            "discounted_price": "18.95",
+            "image": "mercury.gif",
+            "image_2": "mercury-2.gif",
+            "thumbnail": "mercury-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 14,
+        "fields": {
+            "name": "County of Nice",
+            "description": "Nice is so nice that it has been fought over for millennia, but now it all belongs to France.",
+            "price": "12.95",
+            "discounted_price": "0.00",
+            "image": "county-of-nice.gif",
+            "image_2": "county-of-nice-2.gif",
+            "thumbnail": "county-of-nice-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 15,
+        "fields": {
+            "name": "Notre Dame",
+            "description": "Commemorating the 800th anniversary of the famed cathedral.",
+            "price": "18.50",
+            "discounted_price": "16.99",
+            "image": "notre-dame.gif",
+            "image_2": "notre-dame-2.gif",
+            "thumbnail": "notre-dame-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 16,
+        "fields": {
+            "name": "Paris Peace Conference",
+            "description": "The resulting treaties allowed Italy, Romania, Hungary, Bulgaria, and Finland to reassume their responsibilities as sovereign states in international affairs and thus qualify for membership in the UN.",
+            "price": "16.95",
+            "discounted_price": "15.99",
+            "image": "paris-peace-conference.gif",
+            "image_2": "paris-peace-conference-2.gif",
+            "thumbnail": "paris-peace-conference-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 17,
+        "fields": {
+            "name": "Sarah Bernhardt",
+            "description": "The \"Divine Sarah\" said this about Americans: \"You are younger than we as a race, you are perhaps barbaric, but what of it? You are still in the molding. Your spirit is superb. It is what helped us win the war.\" Perhaps we're still barbaric but we're still winning wars for them too!",
+            "price": "14.99",
+            "discounted_price": "0.00",
+            "image": "sarah-bernhardt.gif",
+            "image_2": "sarah-bernhardt-2.gif",
+            "thumbnail": "sarah-bernhardt-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 18,
+        "fields": {
+            "name": "Hunt",
+            "description": "A scene from \"Les Tres Riches Heures,\" a medieval \"book of hours\" containing the text for each liturgical hour of the day. This scene is from a 14th century painting.",
+            "price": "16.99",
+            "discounted_price": "15.95",
+            "image": "hunt.gif",
+            "image_2": "hunt-2.gif",
+            "thumbnail": "hunt-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 19,
+        "fields": {
+            "name": "Italia",
+            "description": "The War had just ended when this stamp was designed, and even so, there was enough optimism to show the destroyed oak tree sprouting again from its stump! What a beautiful T-shirt!",
+            "price": "22.00",
+            "discounted_price": "18.99",
+            "image": "italia.gif",
+            "image_2": "italia-2.gif",
+            "thumbnail": "italia-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 20,
+        "fields": {
+            "name": "Torch",
+            "description": "The light goes on! Carry the torch with this T-shirt and be a beacon of hope for the world!",
+            "price": "19.99",
+            "discounted_price": "17.95",
+            "image": "torch.gif",
+            "image_2": "torch-2.gif",
+            "thumbnail": "torch-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 21,
+        "fields": {
+            "name": "Espresso",
+            "description": "The winged foot of Mercury speeds the Special Delivery mail to its destination. In a hurry? This T-shirt is for you!",
+            "price": "16.95",
+            "discounted_price": "0.00",
+            "image": "espresso.gif",
+            "image_2": "espresso-2.gif",
+            "thumbnail": "espresso-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 22,
+        "fields": {
+            "name": "Galileo",
+            "description": "This beautiful T-shirt does honor to one of Italy's (and the world's) most famous scientists. Show your appreciation for the education you've received!",
+            "price": "14.99",
+            "discounted_price": "0.00",
+            "image": "galileo.gif",
+            "image_2": "galileo-2.gif",
+            "thumbnail": "galileo-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 23,
+        "fields": {
+            "name": "Italian Airmail",
+            "description": "Thanks to modern Italian post, folks were able to reach out and touch each other. Or at least so implies this image. This is a very fast and friendly T-shirt--you'll make friends with it!",
+            "price": "21.00",
+            "discounted_price": "17.99",
+            "image": "italian-airmail.gif",
+            "image_2": "italian-airmail-2.gif",
+            "thumbnail": "italian-airmail-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 24,
+        "fields": {
+            "name": "Mazzini",
+            "description": "Giuseppe Mazzini is considered one of the patron saints of the \"Risorgimiento.\" Wear this beautiful T-shirt to tell the world youagree!",
+            "price": "20.50",
+            "discounted_price": "18.95",
+            "image": "mazzini.gif",
+            "image_2": "mazzini-2.gif",
+            "thumbnail": "mazzini-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 25,
+        "fields": {
+            "name": "Romulus & Remus",
+            "description": "Back in 753 BC, so the story goes, Romulus founded the city of Rome (in competition with Remus, who founded a city on another hill). Their adopted mother is shown in this image. When did they suspect they were adopted?",
+            "price": "17.99",
+            "discounted_price": "16.95",
+            "image": "romulus-remus.gif",
+            "image_2": "romulus-remus-2.gif",
+            "thumbnail": "romulus-remus-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 26,
+        "fields": {
+            "name": "Italy Maria",
+            "description": "This beautiful image of the Virgin is from a work by Raphael, whose life and death it honors. It is one of our most popular T-shirts!",
+            "price": "14.00",
+            "discounted_price": "0.00",
+            "image": "italy-maria.gif",
+            "image_2": "italy-maria-2.gif",
+            "thumbnail": "italy-maria-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 27,
+        "fields": {
+            "name": "Italy Jesus",
+            "description": "This image of Jesus teaching the gospel was issued to commemorate the third centenary of the \"propagation of the faith.\" Now you can do your part with this T-shirt!",
+            "price": "16.95",
+            "discounted_price": "0.00",
+            "image": "italy-jesus.gif",
+            "image_2": "italy-jesus-2.gif",
+            "thumbnail": "italy-jesus-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 28,
+        "fields": {
+            "name": "St. Francis",
+            "description": "Here St. Francis is receiving his vision. This dramatic and attractive stamp was issued on the 700th anniversary of that event.",
+            "price": "22.00",
+            "discounted_price": "18.99",
+            "image": "st-francis.gif",
+            "image_2": "st-francis-2.gif",
+            "thumbnail": "st-francis-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 29,
+        "fields": {
+            "name": "Irish Coat of Arms",
+            "description": "This was one of the first stamps of the new Irish Republic, and it makes a T-shirt you'll be proud to wear on St. Paddy's Day!",
+            "price": "14.99",
+            "discounted_price": "0.00",
+            "image": "irish-coat-of-arms.gif",
+            "image_2": "irish-coat-of-arms-2.gif",
+            "thumbnail": "irish-coat-of-arms-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 30,
+        "fields": {
+            "name": "Easter Rebellion",
+            "description": "The Easter Rebellion of 1916 was a defining moment in Irish history. Although only a few hundred participated and the British squashed it in a week, its leaders were executed, which galvanized the uncommitted.",
+            "price": "19.00",
+            "discounted_price": "16.95",
+            "image": "easter-rebellion.gif",
+            "image_2": "easter-rebellion-2.gif",
+            "thumbnail": "easter-rebellion-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 31,
+        "fields": {
+            "name": "Guiness",
+            "description": "Class! Who is this man and why is he important enough for his own T-shirt?!",
+            "price": "15.00",
+            "discounted_price": "0.00",
+            "image": "guiness.gif",
+            "image_2": "guiness-2.gif",
+            "thumbnail": "guiness-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 32,
+        "fields": {
+            "name": "St. Patrick",
+            "description": "This stamp commemorated the 1500th anniversary of the revered saint's death. Is there a more perfect St. Patrick's Day T-shirt?!",
+            "price": "20.50",
+            "discounted_price": "17.95",
+            "image": "st-patrick.gif",
+            "image_2": "st-patrick-2.gif",
+            "thumbnail": "st-patrick-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 33,
+        "fields": {
+            "name": "St. Peter",
+            "description": "This T-shirt commemorates the holy year of 1950.",
+            "price": "16.00",
+            "discounted_price": "14.95",
+            "image": "st-peter.gif",
+            "image_2": "st-peter-2.gif",
+            "thumbnail": "st-peter-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 34,
+        "fields": {
+            "name": "Sword of Light",
+            "description": "This was the very first Irish postage stamp, and what a beautiful and cool T-shirt it makes for the Irish person in your life!",
+            "price": "14.99",
+            "discounted_price": "0.00",
+            "image": "sword-of-light.gif",
+            "image_2": "sword-of-light-2.gif",
+            "thumbnail": "sword-of-light-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 35,
+        "fields": {
+            "name": "Thomas Moore",
+            "description": "One of the greatest if not the greatest of Irish poets and writers, Moore led a very interesting life, though plagued with tragedy in a somewhat typically Irish way. Remember \"The Last Rose of Summer\"?",
+            "price": "15.95",
+            "discounted_price": "14.99",
+            "image": "thomas-moore.gif",
+            "image_2": "thomas-moore-2.gif",
+            "thumbnail": "thomas-moore-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 36,
+        "fields": {
+            "name": "Visit the Zoo",
+            "description": "This WPA poster is a wonderful example of the art produced by the Works Projects Administration during the Depression years. Do you feel like you sometimes live or work in a zoo? Then this T-shirt is for you!",
+            "price": "20.00",
+            "discounted_price": "16.95",
+            "image": "visit-the-zoo.gif",
+            "image_2": "visit-the-zoo-2.gif",
+            "thumbnail": "visit-the-zoo-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 37,
+        "fields": {
+            "name": "Sambar",
+            "description": "This handsome Malayan Sambar was a pain in the neck to get to pose like this, and all so you could have this beautiful retro animal T-shirt!",
+            "price": "19.00",
+            "discounted_price": "17.99",
+            "image": "sambar.gif",
+            "image_2": "sambar-2.gif",
+            "thumbnail": "sambar-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 38,
+        "fields": {
+            "name": "Buffalo",
+            "description": "Of all the critters in our T-shirt zoo, this is one of our most popular. A classic animal T-shirt for an individual like yourself!",
+            "price": "14.99",
+            "discounted_price": "0.00",
+            "image": "buffalo.gif",
+            "image_2": "buffalo-2.gif",
+            "thumbnail": "buffalo-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 39,
+        "fields": {
+            "name": "Mustache Monkey",
+            "description": "This fellow is more than equipped to hang out with that tail of his, just like you'll be fit for hanging out with this great animal T-shirt!",
+            "price": "20.00",
+            "discounted_price": "17.95",
+            "image": "mustache-monkey.gif",
+            "image_2": "mustache-monkey-2.gif",
+            "thumbnail": "mustache-monkey-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 40,
+        "fields": {
+            "name": "Colobus",
+            "description": "Why is he called \"Colobus,\" \"the mutilated one\"? He doesn't have a thumb, just four fingers! He is far from handicapped, however; his hands make him the great swinger he is. Speaking of swinging, that's what you'll do with this beautiful animal T-shirt!",
+            "price": "17.00",
+            "discounted_price": "15.99",
+            "image": "colobus.gif",
+            "image_2": "colobus-2.gif",
+            "thumbnail": "colobus-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 41,
+        "fields": {
+            "name": "Canada Goose",
+            "description": "Being on a major flyway for these guys, we know all about these majestic birds. They hang out in large numbers on a lake near our house and fly over constantly. Remember what Frankie Lane said? \"I want to go where the wild goose goes!\" And when you go, wear this cool Canada goose animal T-shirt.",
+            "price": "15.99",
+            "discounted_price": "0.00",
+            "image": "canada-goose.gif",
+            "image_2": "canada-goose-2.gif",
+            "thumbnail": "canada-goose-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 42,
+        "fields": {
+            "name": "Congo Rhino",
+            "description": "Among land mammals, this white rhino is surpassed in size only by the elephant. He has a big fan base too, working hard to make sure he sticks around. You'll be a fan of his, too, when people admire this unique and beautiful T-shirt on you!",
+            "price": "20.00",
+            "discounted_price": "18.99",
+            "image": "congo-rhino.gif",
+            "image_2": "congo-rhino-2.gif",
+            "thumbnail": "congo-rhino-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 43,
+        "fields": {
+            "name": "Equatorial Rhino",
+            "description": "There's a lot going on in this frame! A black rhino is checking out that python slithering off into the bush--or is he eyeing you? You can bet all eyes will be on you when you wear this T-shirt!",
+            "price": "19.95",
+            "discounted_price": "17.95",
+            "image": "equatorial-rhino.gif",
+            "image_2": "equatorial-rhino-2.gif",
+            "thumbnail": "equatorial-rhino-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 44,
+        "fields": {
+            "name": "Ethiopian Rhino",
+            "description": "Another white rhino is honored in this classic design that bespeaks the Africa of the early century. This pointillist and retro T-shirt will definitely turn heads!",
+            "price": "16.00",
+            "discounted_price": "0.00",
+            "image": "ethiopian-rhino.gif",
+            "image_2": "ethiopian-rhino-2.gif",
+            "thumbnail": "ethiopian-rhino-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 45,
+        "fields": {
+            "name": "Dutch Sea Horse",
+            "description": "I think this T-shirt is destined to be one of our most popular simply because it is one of our most beautiful!",
+            "price": "12.50",
+            "discounted_price": "0.00",
+            "image": "dutch-sea-horse.gif",
+            "image_2": "dutch-sea-horse-2.gif",
+            "thumbnail": "dutch-sea-horse-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 46,
+        "fields": {
+            "name": "Dutch Swans",
+            "description": "This stamp was designed in the middle of the Nazi occupation, as was the one above. Together they reflect a spirit of beauty that evil could not suppress. Both of these T-shirts will make it impossible to suppress your artistic soul, too!",
+            "price": "21.00",
+            "discounted_price": "18.99",
+            "image": "dutch-swans.gif",
+            "image_2": "dutch-swans-2.gif",
+            "thumbnail": "dutch-swans-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 47,
+        "fields": {
+            "name": "Ethiopian Elephant",
+            "description": "From the same series as the Ethiopian Rhino and the Ostriches, this stylish elephant T-shirt will mark you as a connoisseur of good taste!",
+            "price": "18.99",
+            "discounted_price": "16.95",
+            "image": "ethiopian-elephant.gif",
+            "image_2": "ethiopian-elephant-2.gif",
+            "thumbnail": "ethiopian-elephant-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 48,
+        "fields": {
+            "name": "Laotian Elephant",
+            "description": "This working guy is proud to have his own stamp, and now he has his own T-shirt!",
+            "price": "21.00",
+            "discounted_price": "18.99",
+            "image": "laotian-elephant.gif",
+            "image_2": "laotian-elephant-2.gif",
+            "thumbnail": "laotian-elephant-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 49,
+        "fields": {
+            "name": "Liberian Elephant",
+            "description": "And yet another Jumbo! You need nothing but a big heart to wear this T-shirt (or a big sense of style)!",
+            "price": "22.00",
+            "discounted_price": "17.50",
+            "image": "liberian-elephant.gif",
+            "image_2": "liberian-elephant-2.gif",
+            "thumbnail": "liberian-elephant-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 50,
+        "fields": {
+            "name": "Somali Ostriches",
+            "description": "Another in an old series of beautiful stamps from Ethiopia. These big birds pack quite a wallop, and so will you when you wear this uniquely retro T-shirt!",
+            "price": "12.95",
+            "discounted_price": "0.00",
+            "image": "somali-ostriches.gif",
+            "image_2": "somali-ostriches-2.gif",
+            "thumbnail": "somali-ostriches-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 51,
+        "fields": {
+            "name": "Tankanyika Giraffe",
+            "description": "The photographer had to stand on a step ladder for this handsome portrait, but his efforts paid off with an angle we seldom see of this lofty creature. This beautiful retro T-shirt would make him proud!", 
+            "price": "15.00", 
+            "discounted_price": "12.99", 
+            "image": "tankanyika-giraffe.gif", 
+            "image_2": "tankanyika-giraffe-2.gif", 
+            "thumbnail": "tankanyika-giraffe-thumbnail.gif", 
+            "display": 3, 
+            "categories": [4]
+        }
+    }, 
+    {
+        "model": "ecommerce.product", 
+        "pk": 52, 
+        "fields": {
+            "name": "Ifni Fish", 
+            "description": "This beautiful stamp was issued to commemorate National Colonial Stamp Day (you can do that when you have a colony). When you wear this fancy fish T-shirt, your friends will think it's national T-shirt day!", 
+            "price": "14.00", 
+            "discounted_price": "0.00", 
+            "image": "ifni-fish.gif", 
+            "image_2": "ifni-fish-2.gif", 
+            "thumbnail": "ifni-fish-thumbnail.gif", 
+            "display": 0, 
+            "categories": [4]
+        }
+    }, 
+    {
+        "model": "ecommerce.product", 
+        "pk": 53, 
+        "fields": {
+            "name": "Sea Gull", 
+            "description": "A beautiful stamp from a small enclave in southern Morocco that belonged to Spain until 1969 makes a beautiful bird T-shirt.", 
+            "price": "19.00", 
+            "discounted_price": "16.95", 
+            "image": "sea-gull.gif", 
+            "image_2": "sea-gull-2.gif", 
+            "thumbnail": "sea-gull-thumbnail.gif", 
+            "display": 2, 
+            "categories": [4]
+        }
+    }, 
+    {
+        "model": "ecommerce.product", 
+        "pk": 54, 
+        "fields": {
+            "name": "King Salmon", 
+            "description": "You can fish them and eat them and now you can wear them with this classic animal T-shirt.", 
+            "price": "17.95", 
+            "discounted_price": "15.99", 
+            "image": "king-salmon.gif", 
+            "image_2": "king-salmon-2.gif", 
+            "thumbnail": "king-salmon-thumbnail.gif", 
+            "display": 2, 
+            "categories": [4]
+        }
+    }, 
+    {
+        "model": "ecommerce.product",
+        "pk": 55,
+        "fields": {
+            "name": "Laos Bird",
+            "description": "This fellow is also known as the \"White Crested Laughing Thrush.\" What's he laughing at? Why, at the joy of being on your T-shirt!",
+            "price": "12.00",
+            "discounted_price": "0.00",
+            "image": "laos-bird.gif",
+            "image_2": "laos-bird-2.gif",
+            "thumbnail": "laos-bird-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 56,
+        "fields": {
+            "name": "Mozambique Lion",
+            "description": "The Portuguese were too busy to run this colony themselves so they gave the Mozambique Company a charter to do it. I think there must be some pretty curious history related to that (the charter only lasted for 50 years)! If you're a Leo, or know a Leo, you should seriously consider this T-shirt!",
+            "price": "15.99",
+            "discounted_price": "14.95",
+            "image": "mozambique-lion.gif",
+            "image_2": "mozambique-lion-2.gif",
+            "thumbnail": "mozambique-lion-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 57,
+        "fields": {
+            "name": "Peru Llama",
+            "description": "This image is nearly 100 years old! Little did this little llama realize that he was going to be made immortal on the Web and on this very unique animal T-shirt (actually, little did he know at all)!", 
+            "price": "21.50", "discounted_price": "17.99", "image": "peru-llama.gif", "image_2": "peru-llama-2.gif", "thumbnail": "peru-llama-thumbnail.gif", "display": 2, "categories": [4]}}, {"model": "ecommerce.product", "pk": 58, "fields": {"name": "Romania Alsatian", "description": "If you know and love this breed, there's no reason in the world that you shouldn't buy this T-shirt right now!", "price": "15.95", "discounted_price": "0.00", "image": "romania-alsatian.gif", "image_2": "romania-alsatian-2.gif", "thumbnail": "romania-alsatian-thumbnail.gif", "display": 0, "categories": [4]}}, {"model": "ecommerce.product", "pk": 59, "fields": {"name": "Somali Fish", "description": "This is our most popular fish T-shirt, hands down. It's a beauty, and if you wear this T-shirt, you'll be letting the world know you're a fine catch!", "price": "19.95", "discounted_price": "16.95", "image": "somali-fish.gif", "image_2": "somali-fish-2.gif", "thumbnail": "somali-fish-thumbnail.gif", "display": 2, "categories": [4]}}, {"model": "ecommerce.product", "pk": 60, "fields": {"name": "Trout", "description": "This beautiful image will warm the heart of any fisherman! You must know one if you're not one yourself, so you must buy this T-shirt!", "price": "14.00", "discounted_price": "0.00", "image": "trout.gif", "image_2": "trout-2.gif", "thumbnail": "trout-thumbnail.gif", "display": 0, "categories": [4]}}, {"model": "ecommerce.product", "pk": 61, "fields": {"name": "Baby Seal", "description": "Ahhhhhh! This little harp seal would really prefer not to be your coat! But he would like to be your T-shirt!", "price": "21.00", "discounted_price": "18.99", "image": "baby-seal.gif", "image_2": "baby-seal-2.gif", "thumbnail": "baby-seal-thumbnail.gif", "display": 2, "categories": [4]}}, {"model": "ecommerce.product", "pk": 62, "fields": {"name": "Musk Ox", "description": "Some critters you just don't want to fool with, and if I were facing this fellow I'd politely give him the trail! That is, of course, unless I were wearing this T-shirt.", "price": "15.50", "discounted_price": "0.00", "image": "musk-ox.gif", "image_2": "musk-ox-2.gif", "thumbnail": "musk-ox-thumbnail.gif", "display": 0, "categories": [4]}}, {"model": "ecommerce.product", "pk": 63, "fields": {"name": "Suvla Bay", "description": " In 1915, Newfoundland sent its Newfoundland Regiment to Suvla Bay in Gallipoli to fight the Turks. This classic image does them honor. Have you ever heard of them? Share the news with this great T-shirt!", "price": "12.99", "discounted_price": "0.00", "image": "suvla-bay.gif", "image_2": "suvla-bay-2.gif", "thumbnail": "suvla-bay-thumbnail.gif", "display": 0, "categories": [4]}}, {"model": "ecommerce.product", "pk": 64, "fields": {"name": "Caribou", "description": "There was a time when Newfoundland was a self-governing dominion of the British Empire, so it printed its own postage. The themes are as typically Canadian as can be, however, as shown by this \"King of the Wilde\" T-shirt!",
+            "price": "21.00",
+            "discounted_price": "19.95",
+            "image": "caribou.gif",
+            "image_2": "caribou-2.gif",
+            "thumbnail": "caribou-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 65,
+        "fields": {
+            "name": "Afghan Flower",
+            "description": "This beautiful image was issued to celebrate National Teachers Day. Perhaps you know a teacher who would love this T-shirt?",
+            "price": "18.50",
+            "discounted_price": "16.99",
+            "image": "afghan-flower.gif",
+            "image_2": "afghan-flower-2.gif",
+            "thumbnail": "afghan-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 66,
+        "fields": {
+            "name": "Albania Flower",
+            "description": "Well, these crab apples started out as flowers, so that's close enough for us! They still make for a uniquely beautiful T-shirt.",
+            "price": "16.00",
+            "discounted_price": "14.95",
+            "image": "albania-flower.gif",
+            "image_2": "albania-flower-2.gif",
+            "thumbnail": "albania-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 67,
+        "fields": {
+            "name": "Austria Flower",
+            "description": "Have you ever had nasturtiums on your salad? Try it--they're almost as good as having them on your T-shirt!",
+            "price": "12.99",
+            "discounted_price": "0.00",
+            "image": "austria-flower.gif",
+            "image_2": "austria-flower-2.gif",
+            "thumbnail": "austria-flower-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 68,
+        "fields": {
+            "name": "Bulgarian Flower",
+            "description": "For your interest (and to impress your friends), this beautiful stamp was issued to honor the George Dimitrov state printing works. You'll need to know this when you wear the T-shirt.",
+            "price": "16.00",
+            "discounted_price": "14.99",
+            "image": "bulgarian-flower.gif",
+            "image_2": "bulgarian-flower-2.gif",
+            "thumbnail": "bulgarian-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 69,
+        "fields": {
+            "name": "Colombia Flower",
+            "description": "Celebrating the 75th anniversary of the Universal Postal Union, a date to mark on your calendar and on which to wear this T-shirt!",
+            "price": "14.50",
+            "discounted_price": "12.95",
+            "image": "colombia-flower.gif",
+            "image_2": "colombia-flower-2.gif",
+            "thumbnail": "colombia-flower-thumbnail.gif",
+            "display": 1,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 70,
+        "fields": {
+            "name": "Congo Flower",
+            "description": "The Congo is not at a loss for beautiful flowers, and we've picked a few of them for your T-shirts.",
+            "price": "21.00",
+            "discounted_price": "17.99",
+            "image": "congo-flower.gif",
+            "image_2": "congo-flower-2.gif",
+            "thumbnail": "congo-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 71,
+        "fields": {
+            "name": "Costa Rica Flower",
+            "description": "This national flower of Costa Rica is one of our most beloved flower T-shirts (you can see one on Jill, above). You will surely stand out in this T-shirt!",
+            "price": "12.99",
+            "discounted_price": "0.00",
+            "image": "costa-rica-flower.gif",
+            "image_2": "costa-rica-flower.gif",
+            "thumbnail": "costa-rica-flower-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 72,
+        "fields": {
+            "name": "Gabon Flower",
+            "description": "The combretum, also known as \"jungle weed,\" is used in China as a cure for opium addiction. Unfortunately, when you wear this T-shirt, others may become hopelessly addicted to you!",
+            "price": "19.00",
+            "discounted_price": "16.95",
+            "image": "gabon-flower.gif",
+            "image_2": "gabon-flower-2.gif",
+            "thumbnail": "gabon-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 73,
+        "fields": {
+            "name": "Ghana Flower",
+            "description": "This is one of the first gingers to bloom in the spring--just like you when you wear this T-shirt!",
+            "price": "21.00",
+            "discounted_price": "18.99",
+            "image": "ghana-flower.gif",
+            "image_2": "ghana-flower-2.gif",
+            "thumbnail": "ghana-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 74,
+        "fields": {
+            "name": "Israel Flower",
+            "description": "This plant is native to the rocky and sandy regions of the western United States, so when you come across one, it really stands out. And so will you when you put on this beautiful T-shirt!",
+            "price": "19.50",
+            "discounted_price": "17.50",
+            "image": "israel-flower.gif",
+            "image_2": "israel-flower-2.gif",
+            "thumbnail": "israel-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 75,
+        "fields": {
+            "name": "Poland Flower",
+            "description": "A beautiful and sunny T-shirt for both spring and summer!",
+            "price": "16.95",
+            "discounted_price": "15.99",
+            "image": "poland-flower.gif",
+            "image_2": "poland-flower-2.gif",
+            "thumbnail": "poland-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 76,
+        "fields": {
+            "name": "Romania Flower",
+            "description": "Also known as the spring pheasant's eye, this flower belongs on your T-shirt this summer to help you catch a few eyes.",
+            "price": "12.95",
+            "discounted_price": "0.00",
+            "image": "romania-flower.gif",
+            "image_2": "romania-flower-2.gif",
+            "thumbnail": "romania-flower-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 77,
+        "fields": {
+            "name": "Russia Flower",
+            "description": "Someone out there who can speak Russian needs to tell me what this plant is. I'll sell you the T-shirt for $10 if you can!",
+            "price": "21.00",
+            "discounted_price": "18.95",
+            "image": "russia-flower.gif",
+            "image_2": "russia-flower-2.gif",
+            "thumbnail": "russia-flower-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 78,
+        "fields": {
+            "name": "San Marino Flower",
+            "description": "\"A white sport coat and a pink carnation, I'm all dressed up for the dance!\" Well, how about a white T-shirt and a pink carnation?!",
+            "price": "19.95",
+            "discounted_price": "17.99",
+            "image": "san-marino-flower.gif",
+            "image_2": "san-marino-flower-2.gif",
+            "thumbnail": "san-marino-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 79,
+        "fields": {
+            "name": "Uruguay Flower",
+            "description": "The Indian Queen Anahi was the ugliest woman ever seen. But instead of living a slave when captured by the Conquistadores, she immolated herself in a fire and was reborn the most beautiful of flowers: the ceibo, national flower of Uruguay. Of course, you won't need to burn to wear this T-shirt, but you may cause some pretty hot glances to be thrown your way!",
+            "price": "17.99",
+            "discounted_price": "16.99",
+            "image": "uruguay-flower.gif",
+            "image_2": "uruguay-flower-2.gif",
+            "thumbnail": "uruguay-flower-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 80,
+        "fields": {
+            "name": "Snow Deer",
+            "description": "Tarmo has produced some wonderful Christmas T-shirts for us, and we hope to have many more soon.",
+            "price": "21.00",
+            "discounted_price": "18.95",
+            "image": "snow-deer.gif",
+            "image_2": "snow-deer-2.gif",
+            "thumbnail": "snow-deer-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 81,
+        "fields": {
+            "name": "Holly Cat",
+            "description": "Few things make a cat happier at Christmas than a tree suddenly appearing in the house!", "price": "15.99", "discounted_price": "0.00", "image": "holly-cat.gif", "image_2": "holly-cat-2.gif", "thumbnail": "holly-cat-thumbnail.gif", "display": 0, "categories": [4, 6]}}, {"model": "ecommerce.product", "pk": 82, "fields": {"name": "Christmas Seal", "description": "Is this your grandmother? It could be, you know, and I'd bet she'd recognize the Christmas seal on this cool Christmas T-shirt.", "price": "19.99", "discounted_price": "17.99", "image": "christmas-seal.gif", "image_2": "christmas-seal-2.gif", "thumbnail": "christmas-seal-thumbnail.gif", "display": 2, "categories": [6]}}, {"model": "ecommerce.product", "pk": 83, "fields": {"name": "Weather Vane", "description": "This weather vane dates from the 1830's and is still showing which way the wind blows! Trumpet your arrival with this unique Christmas T-shirt.", "price": "15.95", "discounted_price": "14.99", "image": "weather-vane.gif", "image_2": "weather-vane-2.gif", "thumbnail": "weather-vane-thumbnail.gif", "display": 2, "categories": [6]}}, {"model": "ecommerce.product", "pk": 84, "fields": {"name": "Mistletoe", "description": "This well-known parasite and killer of trees was revered by the Druids, who would go out and gather it with great ceremony. Youths would go about with it to announce the new year. Eventually more engaging customs were attached to the strange plant, and we're here to see that they continue with these cool Christmas T-shirts.", "price": "19.00", "discounted_price": "17.99", "image": "mistletoe.gif", "image_2": "mistletoe-2.gif", "thumbnail": "mistletoe-thumbnail.gif", "display": 3, "categories": [6]}}, {"model": "ecommerce.product", "pk": 85, "fields": {"name": "Altar Piece", "description": "This beautiful angel Christmas T-shirt is awaiting the opportunity to adorn your chest!", "price": "20.50", "discounted_price": "18.50", "image": "altar-piece.gif", "image_2": "altar-piece-2.gif", "thumbnail": "altar-piece-thumbnail.gif", "display": 2, "categories": [6]}}, {"model": "ecommerce.product", "pk": 86, "fields": {"name": "The Three Wise Men", "description": "This is a classic rendition of one of the season?s most beloved stories, and now showing on a Christmas T-shirt for you!", "price": "12.99", "discounted_price": "0.00", "image": "the-three-wise-men.gif", "image_2": "the-three-wise-men-2.gif", "thumbnail": "the-three-wise-men-thumbnail.gif", "display": 0, "categories": [6]}}, {"model": "ecommerce.product", "pk": 87, "fields": {"name": "Christmas Tree", "description": "Can you get more warm and folksy than this classic Christmas T-shirt?", "price": "20.00", "discounted_price": "17.95", "image": "christmas-tree.gif", "image_2": "christmas-tree-2.gif", "thumbnail": "christmas-tree-thumbnail.gif", "display": 2, "categories": [6]}}, {"model": "ecommerce.product", "pk": 88, "fields": {"name": "Madonna & Child", "description": "This exquisite image was painted by Filipino Lippi, a 15th century Italian artist. I think he would approve of it on a Going Postal Christmas T-shirt!", "price": "21.95", "discounted_price": "18.50", "image": "madonna-child.gif", "image_2": "madonna-child-2.gif", "thumbnail": "madonna-child-thumbnail.gif", "display": 0, "categories": [6]}}, {"model": "ecommerce.product", "pk": 89, "fields": {"name": "The Virgin Mary", "description": "This stained glass window is found in Glasgow Cathedral, Scotland, and was created by Gabriel Loire of France, one of the most prolific of artists in this medium--and now you can have it on this wonderful Christmas T-shirt.", "price": "16.95", "discounted_price": "15.95", "image": "the-virgin-mary.gif", "image_2": "the-virgin-mary-2.gif", "thumbnail": "the-virgin-mary-thumbnail.gif", "display": 2, "categories": [6]}}, {"model": "ecommerce.product", "pk": 90, "fields": {"name": "Adoration of the Kings", "description": "This design is from a miniature in the Evangelistary of Matilda in Nonantola Abbey, from the 12th century. As a Christmas T-shirt, it will cause you to be adored!", "price": "17.50", "discounted_price": "16.50", "image": "adoration-of-the-kings.gif", "image_2": "adoration-of-the-kings-2.gif", "thumbnail": "adoration-of-the-kings-thumbnail.gif", "display": 2, "categories":
+[
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 91,
+        "fields": {
+            "name": "A Partridge in a Pear Tree",
+            "description": "The original of this beautiful stamp is by Jamie Wyeth and is in the National Gallery of Art. The next best is on our beautiful Christmas T-shirt!",
+            "price": "14.99",
+            "discounted_price": "0.00",
+            "image": "a-partridge-in-a-pear-tree.gif",
+            "image_2": "a-partridge-in-a-pear-tree-2.gif",
+            "thumbnail": "a-partridge-in-a-pear-tree-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 92,
+        "fields": {
+            "name": "St. Lucy",
+            "description": "This is a tiny detail of a large work called \"Mary, Queen of Heaven,\" done in 1480 by a Flemish master known only as \"The Master of St. Lucy Legend.\" The original is in a Bruges church. The not-quite-original is on this cool Christmas T-shirt.",
+            "price": "18.95",
+            "discounted_price": "0.00",
+            "image": "st-lucy.gif",
+            "image_2": "st-lucy-2.gif",
+            "thumbnail": "st-lucy-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 93,
+        "fields": {
+            "name": "St. Lucia",
+            "description": "Saint Lucia's tradition is an important part of Swedish Christmas, and an important part of that are the candles. Next to the candles in importance is this popular Christmas T-shirt!",
+            "price": "19.00",
+            "discounted_price": "17.95",
+            "image": "st-lucia.gif",
+            "image_2": "st-lucia-2.gif",
+            "thumbnail": "st-lucia-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 94,
+        "fields": {
+            "name": "Swede Santa",
+            "description": "Santa as a child. You must know a child who would love this cool Christmas T-shirt!?",
+            "price": "21.00",
+            "discounted_price": "18.50",
+            "image": "swede-santa.gif",
+            "image_2": "swede-santa-2.gif",
+            "thumbnail": "swede-santa-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 95,
+        "fields": {
+            "name": "Wreath",
+            "description": "Hey! I've got an idea! Why not buy two of these cool Christmas T-shirts so you can wear one and tack the other one to your door?!",
+            "price": "18.99",
+            "discounted_price": "16.99",
+            "image": "wreath.gif",
+            "image_2": "wreath-2.gif",
+            "thumbnail": "wreath-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 96,
+        "fields": {
+            "name": "Love",
+            "description": "Here's a Valentine's day T-shirt that will let you say it all in just one easy glance--there's no mistake about it!",
+            "price": "19.00",
+            "discounted_price": "17.50",
+            "image": "love.gif",
+            "image_2": "love-2.gif",
+            "thumbnail": "love-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 97,
+        "fields": {
+            "name": "Birds",
+            "description": "Is your heart all aflutter? Show it with this T-shirt!",
+            "price": "21.00",
+            "discounted_price": "18.95",
+            "image": "birds.gif",
+            "image_2": "birds-2.gif",
+            "thumbnail": "birds-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                4,
+                7
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 98,
+        "fields": {
+            "name": "Kat Over New Moon",
+            "description": "Love making you feel lighthearted?",
+            "price": "14.99",
+            "discounted_price": "0.00",
+            "image": "kat-over-new-moon.gif",
+            "image_2": "kat-over-new-moon-2.gif",
+            "thumbnail": "kat-over-new-moon-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                4,
+                7
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 99,
+        "fields": {
+            "name": "Thrilling Love",
+            "description": "This girl's got her hockey hunk right where she wants him!",
+            "price": "21.00",
+            "discounted_price": "18.50",
+            "image": "thrilling-love.gif",
+            "image_2": "thrilling-love-2.gif",
+            "thumbnail": "thrilling-love-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 100,
+        "fields": {
+            "name": "The Rapture of Psyche",
+            "description": "Now we're getting a bit more serious!",
+            "price": "18.95",
+            "discounted_price": "16.99",
+            "image": "the-rapture-of-psyche.gif",
+            "image_2": "the-rapture-of-psyche-2.gif",
+            "thumbnail": "the-rapture-of-psyche-thumbnail.gif",
+            "display": 2,
+            "categories": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.product",
+        "pk": 101,
+        "fields": {
+            "name": "The Promise of Spring",
+            "description": "With Valentine's Day come, can Spring be far behind?",
+            "price": "21.00",
+            "discounted_price": "19.50",
+            "image": "the-promise-of-spring.gif",
+            "image_2": "the-promise-of-spring-2.gif",
+            "thumbnail": "the-promise-of-spring-thumbnail.gif",
+            "display": 0,
+            "categories": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.attribute",
+        "pk": 1,
+        "fields": {
+            "name": "Size"
+        }
+    },
+    {
+        "model": "ecommerce.attribute",
+        "pk": 2,
+        "fields": {
+            "name": "Color"
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 1,
+        "fields": {
+            "attribute_id": 1,
+            "value": "S",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 2,
+        "fields": {
+            "attribute_id": 1,
+            "value": "M",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 3,
+        "fields": {
+            "attribute_id": 1,
+            "value": "L",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 4,
+        "fields": {
+            "attribute_id": 1,
+            "value": "XL",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 5,
+        "fields": {
+            "attribute_id": 1,
+            "value": "XXL",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 6,
+        "fields": {
+            "attribute_id": 2,
+            "value": "White",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 7,
+        "fields": {
+            "attribute_id": 2,
+            "value": "Black",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 8,
+        "fields": {
+            "attribute_id": 2,
+            "value": "Red",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 9,
+        "fields": {
+            "attribute_id": 2,
+            "value": "Orange",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 10,
+        "fields": {
+            "attribute_id": 2,
+            "value": "Yellow",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 11,
+        "fields": {
+            "attribute_id": 2,
+            "value": "Green",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 12,
+        "fields": {
+            "attribute_id": 2,
+            "value": "Blue",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 13,
+        "fields": {
+            "attribute_id": 2,
+            "value": "Indigo",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.attributevalue",
+        "pk": 14,
+        "fields": {
+            "attribute_id": 2,
+            "value": "Purple",
+            "products": []
+        }
+    },
+    {
+        "model": "ecommerce.shoppingcart",
+        "pk": 1,
+        "fields": {
+            "cart_id": "d8268bd7-01c5-46a9-ba07-99907e06716c",
+            "date_created": "2019-05-02T14:56:54.004Z",
+            "date_modified": "2019-05-02T14:56:54.004Z"
+        }
+    },
+    {
+        "model": "ecommerce.shoppingcart",
+        "pk": 2,
+        "fields": {
+            "cart_id": "0951cdd7-b6ec-4072-873e-0eab7fd29a0d",
+            "date_created": "2019-05-02T14:57:16.533Z",
+            "date_modified": "2019-05-02T14:57:16.533Z"
+        }
+    },
+    {
+        "model": "ecommerce.shoppingcart",
+        "pk": 3,
+        "fields": {
+            "cart_id": "ddf34311-9667-4a01-909f-4a87beb61135",
+            "date_created": "2019-05-02T14:57:29.108Z",
+            "date_modified": "2019-05-02T14:57:29.108Z"
+        }
+    },
+    {
+        "model": "ecommerce.shoppingcart",
+        "pk": 4,
+        "fields": {
+            "cart_id": "f0333c1d-29f1-4232-9a79-0eb4409c4b68",
+            "date_created": "2019-05-02T15:02:39.551Z",
+            "date_modified": "2019-05-02T15:02:39.551Z"
+        }
+    },
+    {
+        "model": "ecommerce.shoppingcart",
+        "pk": 5,
+        "fields": {
+            "cart_id": "0843b443-9c5d-4a24-bcbc-fc6edca138c1",
+            "date_created": "2019-05-04T17:20:33.548Z",
+            "date_modified": "2019-05-04T17:20:33.548Z"
+        }
+    },
+    {
+        "model": "ecommerce.shoppingcartitem",
+        "pk": 21,
+        "fields": {
+            "shopping_cart_id": 1,
+            "quantity": 3,
+            "buy_now": true,
+            "product_id": 3,
+            "added_on": "2019-05-10T20:11:44.524Z",
+            "date_created": "2019-05-10T20:11:44.524Z",
+            "date_modified": "2019-05-13T08:25:33.798Z",
+            "attributes": [
+                2,
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.shoppingcartitem",
+        "pk": 23,
+        "fields": {
+            "shopping_cart_id": 1,
+            "quantity": 3,
+            "buy_now": true,
+            "product_id": 2,
+            "added_on": "2019-05-13T08:29:02.499Z",
+            "date_created": "2019-05-13T08:29:02.499Z",
+            "date_modified": "2019-05-13T08:34:18.448Z",
+            "attributes": [
+                2,
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.shoppingcartitem",
+        "pk": 24,
+        "fields": {
+            "shopping_cart_id": 1,
+            "quantity": 2,
+            "buy_now": true,
+            "product_id": 1,
+            "added_on": "2019-05-13T08:34:32.575Z",
+            "date_created": "2019-05-13T08:34:32.575Z",
+            "date_modified": "2019-05-13T08:34:42.326Z",
+            "attributes": [
+                2,
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.shippingregion",
+        "pk": 1,
+        "fields": {
+            "shipping_region": "Please Select"
+        }
+    },
+    {
+        "model": "ecommerce.shippingregion",
+        "pk": 2,
+        "fields": {
+            "shipping_region": "US / Canada"
+        }
+    },
+    {
+        "model": "ecommerce.shippingregion",
+        "pk": 3,
+        "fields": {
+            "shipping_region": "Europe"
+        }
+    },
+    {
+        "model": "ecommerce.shippingregion",
+        "pk": 4,
+        "fields": {
+            "shipping_region": "Rest of World"
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 1,
+        "fields": {
+            "last_login": "2019-05-01T11:27:09.062Z",
+            "is_superuser": false,
+            "username": "samurgfsreddffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T11:27:08.838Z",
+            "name": "",
+            "email": "sgaameda@exmaple.com",
+            "password": "pbkdf2_sha256$150000$iDOvaHaC3jfm$NyYCMt67HgED2KDgwoch9Q54rWpcTrqkI4I5WsLZGVc=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 2,
+        "fields": {
+            "last_login": "2019-05-01T11:38:28.463Z",
+            "is_superuser": false,
+            "username": "samurgfreddffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T11:38:28.240Z",
+            "name": "",
+            "email": "sgaamesda@exmaple.com",
+            "password": "pbkdf2_sha256$150000$w1vT4bjDg0IY$uyzVOrpr6ihRaFNXL6ozEgsBqoTJ9xH1iHJt5ER2TmM=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 3,
+        "fields": {
+            "last_login": "2019-05-01T11:56:23.675Z",
+            "is_superuser": false,
+            "username": "samurreddffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T11:56:23.478Z",
+            "name": "",
+            "email": "sgaaDmesda@exmaple.com",
+            "password": "pbkdf2_sha256$150000$HkHfgiga2P0E$eEe0X+RFRoG9etw2mklysgV2svJuDaHb/w4nRiBEBQg=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 4,
+        "fields": {
+            "last_login": "2019-05-01T11:57:34.397Z",
+            "is_superuser": false,
+            "username": "samurreddedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T11:57:34.197Z",
+            "name": "",
+            "email": "sgaaDmesDda@exmaple.com",
+            "password": "pbkdf2_sha256$150000$AZu27RmRd3Ep$w1Rcm6mXxsEiEpxOkoKJcj6V/T5qrPq8v3XBtEAv+UI=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 5,
+        "fields": {
+            "last_login": "2019-05-01T11:58:28.155Z",
+            "is_superuser": false,
+            "username": "samurred2dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T11:58:27.954Z",
+            "name": "",
+            "email": "sgaaDmeseDda@exmaple.com",
+            "password": "pbkdf2_sha256$150000$Jhxx6uNH3hzl$gMpOFlGN5ZS8YPCqf38OSZMTbjTXe1CVisXV17ogFhY=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 6,
+        "fields": {
+            "last_login": "2019-05-01T12:00:20.562Z",
+            "is_superuser": false,
+            "username": "samurred23dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T12:00:20.361Z",
+            "name": "",
+            "email": "sgaaDmeeseDda@exmaple.com",
+            "password": "pbkdf2_sha256$150000$2okqwGfCJrzY$506cyNSeh8HdddfooBDKSLLaEYK/9rSUe7gs2Ogorzg=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 7,
+        "fields": {
+            "last_login": "2019-05-01T12:02:42.236Z",
+            "is_superuser": false,
+            "username": "samurred231dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T12:02:42.032Z",
+            "name": "",
+            "email": "sgaaDmeeseD1da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$KTSrKBv5OHBq$mB9wE2da5RxlG8Gzo3UubFs8cmToQGHGRwBmGHhrYDU=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 8,
+        "fields": {
+            "last_login": "2019-05-01T12:06:25.754Z",
+            "is_superuser": false,
+            "username": "samurred2312dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T12:06:25.554Z",
+            "name": "",
+            "email": "sgaaDmeeseD12da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$oaxoGkIpznrc$aoDjNhgXGVN3Qr2Kl6aO9Kryt9d3R2QjO3xZ/US/iUc=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 9,
+        "fields": {
+            "last_login": "2019-05-01T12:07:20.282Z",
+            "is_superuser": false,
+            "username": "samurred23122dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T12:07:20.081Z",
+            "name": "",
+            "email": "sgaaDmeeseD122da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$PGqOxuvjaWW6$M1Z6j67oMtR3nF4SmyYhXA8R7bJItWh3eFcgslg+5bk=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 10,
+        "fields": {
+            "last_login": "2019-05-01T12:11:06.851Z",
+            "is_superuser": false,
+            "username": "samurred231223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-01T12:11:06.641Z",
+            "name": "",
+            "email": "sgaaDmeeseD1223da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$baGRTJWoJzm6$GSkriE7TSMSAG00nAA6Peh92rQ+jvvA1KWYKQTP+buI=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 11,
+        "fields": {
+            "last_login": "2019-05-02T12:28:15.581Z",
+            "is_superuser": false,
+            "username": "samurred231s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:28:15.341Z",
+            "name": "",
+            "email": "sgaaDmeeseD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$9hQ0UAkPAOLY$+8xHCtu//zyG2kFeR8Ut5VPOqS6Guv8iTS7jkyLxBpQ=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 12,
+        "fields": {
+            "last_login": "2019-05-02T12:29:47.166Z",
+            "is_superuser": false,
+            "username": "samurre3d231s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:29:46.964Z",
+            "name": "",
+            "email": "sgaaDmees1eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$0bmlXZvYCdkT$HUqJlU3fMLLnKxAfA2In8FbUYMclIxClWmvMj4yRhWg=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 13,
+        "fields": {
+            "last_login": "2019-05-02T12:30:38.075Z",
+            "is_superuser": false,
+            "username": "samurree3d231s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:30:37.872Z",
+            "name": "",
+            "email": "sgaaDmeews1eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$dObgs4F38eTj$A38EyQxc3DTgvFzzfvLT8hbZ8KbvGt6QTIqtJDY/qmg=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 14,
+        "fields": {
+            "last_login": "2019-05-02T12:31:27.315Z",
+            "is_superuser": false,
+            "username": "samurree43d231s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:31:27.110Z",
+            "name": "",
+            "email": "sgaaDmeews12eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$y6sG6xKWsnJQ$H0qYMVMoCnVEudzLKgnVNEaPWrumiEqtmYa1SL9z4M4=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 15,
+        "fields": {
+            "last_login": "2019-05-02T12:32:25.897Z",
+            "is_superuser": false,
+            "username": "samurree43d3231s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:32:25.696Z",
+            "name": "",
+            "email": "sgaaDmeews122eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$qgRL5BvlvSHa$fW1l1T9u6tWZ+FlqaV4Le1wQjoKbtoJSymF+UeDqDNA=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 16,
+        "fields": {
+            "last_login": "2019-05-02T12:32:57.031Z",
+            "is_superuser": false,
+            "username": "samurrees3d3231s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:32:56.816Z",
+            "name": "",
+            "email": "sgaaDmeews122seD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$3I5bAPX7qs72$yIhRp3pb/TPPhzwDFoxmEoPO4OqPD6/TnI7KSdmgdKw=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 17,
+        "fields": {
+            "last_login": "2019-05-02T12:33:14.993Z",
+            "is_superuser": false,
+            "username": "samurrees3d32s31s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:33:14.790Z",
+            "name": "",
+            "email": "sgaaDmeews122saeD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$8BV6O00fgrAC$fPKn2GfuciODXQlNKUDVL2JLIGQgVVlsQEDH0FS8toM=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 18,
+        "fields": {
+            "last_login": "2019-05-02T12:38:06.792Z",
+            "is_superuser": false,
+            "username": "samurrees3d332s31s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:38:06.587Z",
+            "name": "",
+            "email": "sgaaDmeews122sa2eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$1l7AlEmvGBym$j3OIY2x7YN+Vxg7p90QX4sIulCjy0kUINYDo2BS6dHQ=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 19,
+        "fields": {
+            "last_login": "2019-05-02T12:45:53.683Z",
+            "is_superuser": false,
+            "username": "samurrees3d332s131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:45:53.478Z",
+            "name": "",
+            "email": "sgaaDmeews122sa23eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$LIBm3BRAFj6c$1x7Ru5rT5raVmm4ioESKIw98re9qELhseWD28sv1GJo=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 20,
+        "fields": {
+            "last_login": "2019-05-02T12:47:23.332Z",
+            "is_superuser": false,
+            "username": "samurrees33d332s131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:47:23.121Z",
+            "name": "",
+            "email": "sgaaDmeews1222sa23eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$Td7oXhiBYzzl$BPhwvRp3JsEledITVd7jCdo4kkqv1J9raddG82d5uvI=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 21,
+        "fields": {
+            "last_login": "2019-05-02T12:48:53.959Z",
+            "is_superuser": false,
+            "username": "samurrees331332s131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:48:53.754Z",
+            "name": "",
+            "email": "sgaaDmeews1222s123eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$wihwzbW4pWsg$U1l3MIql92SlDlKrVZtN4kJAa7RXXFTFSMK7atPuAFM=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 22,
+        "fields": {
+            "last_login": "2019-05-02T12:49:53.528Z",
+            "is_superuser": false,
+            "username": "samurrees331331s131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:49:53.324Z",
+            "name": "",
+            "email": "sgaaDmeews1222s124eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$oXtleESX0IsC$2sbx093tF/jqWtQyhckAuWXo8hO2AhUl3VOyvo2VRkI=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 23,
+        "fields": {
+            "last_login": "2019-05-02T12:53:18.583Z",
+            "is_superuser": false,
+            "username": "samurrees3321331s131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:53:18.375Z",
+            "name": "",
+            "email": "sgaaDmeews12212s124eD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$IegaB8TgWyUl$0KfmW4RcATbiY0yeua3KsCh8NllHFsDpV8tivkmFZ8Y=",
+            "credit_card": "",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 24,
+        "fields": {
+            "last_login": "2019-05-02T12:56:32.050Z",
+            "is_superuser": false,
+            "username": "samurrees3321331s5131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T12:56:31.842Z",
+            "name": "",
+            "email": "sgaaDmeews12212s1244D12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$WSD2DBWCBkuf$z++7s75EE3dgn8QFjqC8UaeOBdBY7/lCsmGHOcoddP4=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 25,
+        "fields": {
+            "last_login": "2019-05-02T13:00:04.940Z",
+            "is_superuser": false,
+            "username": "samurrees33211s5131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:00:04.735Z",
+            "name": "",
+            "email": "sgaaDmeews112s1244D12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$tmLq3ICNP3U4$kr/1zHHMKX6GFGBpfFpi02ppbm+uLynWj+VmV5oKvHg=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 26,
+        "fields": {
+            "last_login": "2019-05-02T13:00:31.971Z",
+            "is_superuser": false,
+            "username": "samurres33211s5131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:00:31.768Z",
+            "name": "",
+            "email": "sgaaDmees112s1244D12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$gUBefDY4yWfs$iTv2Y8p7wxVuMPpGu/qwi5L4j9zxgfq9W9kBNSX1P1o=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 27,
+        "fields": {
+            "last_login": "2019-05-02T13:02:28.581Z",
+            "is_superuser": false,
+            "username": "samures33211s5131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:02:28.377Z",
+            "name": "",
+            "email": "sgaaDees112s1244D12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$HoG1bZNULDmE$Zyhyi6IUj86vCVdo+4Fd4BY/yBptfPUHucZtXE0K5dM=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 28,
+        "fields": {
+            "last_login": "2019-05-02T13:03:04.904Z",
+            "is_superuser": false,
+            "username": "samure33211s5131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:03:04.701Z",
+            "name": "",
+            "email": "sgaaDees12s1244D12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$Xnayl1VzTQk9$JFymdP66HxQ5jC3Xg/VoImWY9TZicnc/rVs/w82oc/U=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 29,
+        "fields": {
+            "last_login": "2019-05-02T13:03:39.382Z",
+            "is_superuser": false,
+            "username": "samre33211s5131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:03:39.180Z",
+            "name": "",
+            "email": "sgaaDes12s1244D12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$s6IJdlFUnJ1S$NzdN6uPs6xkxui2ZzNwC+3Sgo2mYQWTWpHXtdfjU1l8=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 30,
+        "fields": {
+            "last_login": "2019-05-02T13:08:24.366Z",
+            "is_superuser": false,
+            "username": "samre33211s131s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:08:24.163Z",
+            "name": "",
+            "email": "sgaaDes12s124D12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$H4OxFB1is6Aw$zMKDM9emNh2c6nAQTD6yFVFZBPjRtJRbHwoVb3bzSzI=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 31,
+        "fields": {
+            "last_login": "2019-05-02T13:10:20.333Z",
+            "is_superuser": false,
+            "username": "samre33211s13s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:10:20.128Z",
+            "name": "",
+            "email": "sgaaDes12s12D12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$dSGGYZB4D840$UmVSFPNYbE5cLMirF+fQSQTPadvzVihLYS8ozApp0nw=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 32,
+        "fields": {
+            "last_login": "2019-05-02T13:11:46.327Z",
+            "is_superuser": false,
+            "username": "samre3321s13s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:11:46.118Z",
+            "name": "",
+            "email": "sgaaDes1s12D12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$HXRumyeyDCME$YRZziHTnvl/RMotXyI5m41BYQPnztcULJ+nynYRvEGU=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 33,
+        "fields": {
+            "last_login": "2019-05-02T13:20:18.710Z",
+            "is_superuser": false,
+            "username": "samre331s13s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:20:18.509Z",
+            "name": "",
+            "email": "sgaaDes1s1212a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$hSxbOXhsWiXB$Q/FhTBlUtklAPR/+b7HhlSULOaLn7AeDrDe8Grbzfqw=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 34,
+        "fields": {
+            "last_login": "2019-05-02T13:20:55.596Z",
+            "is_superuser": false,
+            "username": "samre31s13s223dedffshfl",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:20:55.391Z",
+            "name": "",
+            "email": "sgaaDe1s1212a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$qrbJJ4VZlzK2$14b2Cy8dWeVSZIfhTTxhs2AQF7eS+uedezPpLAvFbk8=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 35,
+        "fields": {
+            "last_login": "2019-05-02T13:40:23.748Z",
+            "is_superuser": false,
+            "username": "sammyg",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:40:23.545Z",
+            "name": "",
+            "email": "sgaaD12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$cSgwVjmTDihP$wRrM99ClWR8kXEUHNqauP6srWJ1h4f12CCbQh4tcdjU=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 36,
+        "fields": {
+            "last_login": "2019-05-14T12:28:39.774Z",
+            "is_superuser": false,
+            "username": "sammyeg",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:41:02.517Z",
+            "name": "",
+            "email": "sgaaD12a23sda@exmaple.com",
+            "password": "pbkdf2_sha256$150000$748Ula6l1Q6g$zLm25iJWuCyZZ7lmrhYiHEfsfvbmSydYGyNw0foA73g=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 37,
+        "fields": {
+            "last_login": "2019-05-02T13:49:59.940Z",
+            "is_superuser": false,
+            "username": "sammy5g",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:49:59.717Z",
+            "name": "",
+            "email": "sgaaDse1s1212a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$Fk48xGGclyLA$Q0h6zKACCZLFhJZvANytahhZRmthQr8oGu+MBLdPW7I=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 38,
+        "fields": {
+            "last_login": "2019-05-02T13:50:58.568Z",
+            "is_superuser": false,
+            "username": "sammy5sg",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:50:58.348Z",
+            "name": "",
+            "email": "sgaaDse1s12a12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$yFZIt3lNvj3w$RkY2LcejhCSdDwycS8zpiJSrJ/3f+Yhh6Ih8DvbERPI=",
+            "credit_card": null,
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 39,
+        "fields": {
+            "last_login": "2019-05-02T13:53:03.787Z",
+            "is_superuser": false,
+            "username": "sammya5sg",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:53:03.584Z",
+            "name": "",
+            "email": "sgaaDse1s12as12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$kNGomImxWk16$0hzuX73aQuPS3KXNQ3ZCGwrZy/vYOLCRdrHlIRkVfwc=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 40,
+        "fields": {
+            "last_login": "2019-05-02T13:54:08.326Z",
+            "is_superuser": false,
+            "username": "sammaa5sg",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:54:08.123Z",
+            "name": "",
+            "email": "sgaaDs41s12as12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$W8vpGPugXFyR$ssq5uwejmVpYPBvwTnYVQ+XN0JZlYkr8cIQekPsall0=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 41,
+        "fields": {
+            "last_login": "2019-05-02T13:55:01.748Z",
+            "is_superuser": false,
+            "username": "sammaae5sg",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:55:01.539Z",
+            "name": "",
+            "email": "sgaaDs41s1a2as12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$cL94Mc5zGxlW$rrWpxEXyzziWdez3Y46L9y6NHCMvypN70phf490afUk=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 42,
+        "fields": {
+            "last_login": "2019-05-02T13:56:03.483Z",
+            "is_superuser": false,
+            "username": "sammaae5asg",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:56:03.278Z",
+            "name": "",
+            "email": "sgaaDs41s1a2aas12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$3awrTjLuk7Dy$YwhoxkX3ZZbEF5Q7udrDV0S8ZftcBOy7G5SRobry6sE=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 43,
+        "fields": {
+            "last_login": "2019-05-02T13:59:06.303Z",
+            "is_superuser": false,
+            "username": "sammaase5asg",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T13:59:06.099Z",
+            "name": "samuelgaamuwa",
+            "email": "sgaaDs41s1aa2aas12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$MBLA1aXGkHSI$jcKG4jpF+uQ1mlvn83G1EOSaoLRRF0tBtvEozcxk7t0=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": null,
+            "address_2": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": null,
+            "shipping_region_id": 1,
+            "day_phone": null,
+            "eve_phone": null,
+            "mob_phone": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.customer",
+        "pk": 44,
+        "fields": {
+            "last_login": "2019-05-02T14:18:38.740Z",
+            "is_superuser": false,
+            "username": "sammaaase5asg",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-05-02T14:18:38.536Z",
+            "name": "samuelgaamuwa",
+            "email": "sgaaDs41sd1aa2aas12a23da@exmaple.com",
+            "password": "pbkdf2_sha256$150000$i2WQiVQ5A33a$UilWnn5/yldqrnl2AZAegshfdYbhPR4ZALv0lMbhDPU=",
+            "credit_card": "eidhaodkddkdoe",
+            "address_1": "50 Othaya",
+            "address_2": "Upper Hill Lane",
+            "city": "Nairobi",
+            "region": "East Africa",
+            "postal_code": "",
+            "country": "Kenya",
+            "shipping_region_id": 1,
+            "day_phone": "0788418457",
+            "eve_phone": "0738481681",
+            "mob_phone": "0765752183",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "ecommerce.shipping",
+        "pk": 1,
+        "fields": {
+            "shipping_type": "Next Day Delivery ($20)",
+            "shipping_cost": "20.00",
+            "shipping_region_id": 2
+        }
+    },
+    {
+        "model": "ecommerce.shipping",
+        "pk": 2,
+        "fields": {
+            "shipping_type": "3-4 Days ($10)",
+            "shipping_cost": "10.00",
+            "shipping_region_id": 2
+        }
+    },
+    {
+        "model": "ecommerce.shipping",
+        "pk": 3,
+        "fields": {
+            "shipping_type": "7 Days ($5)",
+            "shipping_cost": "5.00",
+            "shipping_region_id": 2
+        }
+    },
+    {
+        "model": "ecommerce.shipping",
+        "pk": 4,
+        "fields": {
+            "shipping_type": "By air (7 days, $25)",
+            "shipping_cost": "25.00",
+            "shipping_region_id": 3
+        }
+    },
+    {
+        "model": "ecommerce.shipping",
+        "pk": 5,
+        "fields": {
+            "shipping_type": "By sea (28 days, $10)",
+            "shipping_cost": "10.00",
+            "shipping_region_id": 3
+        }
+    },
+    {
+        "model": "ecommerce.shipping",
+        "pk": 6,
+        "fields": {
+            "shipping_type": "By air (10 days, $35)",
+            "shipping_cost": "35.00",
+            "shipping_region_id": 4
+        }
+    },
+    {
+        "model": "ecommerce.shipping",
+        "pk": 7,
+        "fields": {
+            "shipping_type": "By sea (28 days, $30)",
+            "shipping_cost": "30.00",
+            "shipping_region_id": 4
+        }
+    },
+    {
+        "model": "ecommerce.tax",
+        "pk": 1,
+        "fields": {
+            "tax_type": "Sales Tax at 8.5%",
+            "tax_percentage": "8.50"
+        }
+    },
+    {
+        "model": "ecommerce.tax",
+        "pk": 2,
+        "fields": {
+            "tax_type": "No Tax",
+            "tax_percentage": "0.00"
+        }
+    },
+    {
+        "model": "ecommerce.orders",
+        "pk": 1,
+        "fields": {
+            "total_amount": "29.00",
+            "created_on": "2019-05-11T13:50:34.795Z",
+            "shipped_on": null,
+            "status": 0,
+            "comments": null,
+            "customer_id": null,
+            "auth_code": null,
+            "reference": null,
+            "shipping_id": null,
+            "tax_id": null,
+            "date_created": "2019-05-11T13:50:34.795Z",
+            "date_modified": "2019-05-11T13:50:34.853Z"
+        }
+    },
+    {
+        "model": "ecommerce.orders",
+        "pk": 2,
+        "fields": {
+            "total_amount": "29.00",
+            "created_on": "2019-05-11T13:54:06.491Z",
+            "shipped_on": null,
+            "status": 0,
+            "comments": null,
+            "customer_id": null,
+            "auth_code": null,
+            "reference": null,
+            "shipping_id": null,
+            "tax_id": null,
+            "date_created": "2019-05-11T13:54:06.491Z",
+            "date_modified": "2019-05-11T13:54:06.497Z"
+        }
+    },
+    {
+        "model": "ecommerce.orders",
+        "pk": 3,
+        "fields": {
+            "total_amount": "29.00",
+            "created_on": "2019-05-11T13:57:41.658Z",
+            "shipped_on": null,
+            "status": 0,
+            "comments": null,
+            "customer_id": null,
+            "auth_code": null,
+            "reference": null,
+            "shipping_id": null,
+            "tax_id": null,
+            "date_created": "2019-05-11T13:57:41.658Z",
+            "date_modified": "2019-05-11T13:57:41.663Z"
+        }
+    },
+    {
+        "model": "ecommerce.orders",
+        "pk": 4,
+        "fields": {
+            "total_amount": "29.00",
+            "created_on": "2019-05-11T14:04:28.257Z",
+            "shipped_on": null,
+            "status": 0,
+            "comments": null,
+            "customer_id": null,
+            "auth_code": null,
+            "reference": null,
+            "shipping_id": null,
+            "tax_id": null,
+            "date_created": "2019-05-11T14:04:28.257Z",
+            "date_modified": "2019-05-11T14:04:28.262Z"
+        }
+    },
+    {
+        "model": "ecommerce.orders",
+        "pk": 5,
+        "fields": {
+            "total_amount": "29.00",
+            "created_on": "2019-05-11T14:04:56.237Z",
+            "shipped_on": null,
+            "status": 0,
+            "comments": null,
+            "customer_id": null,
+            "auth_code": null,
+            "reference": null,
+            "shipping_id": null,
+            "tax_id": null,
+            "date_created": "2019-05-11T14:04:56.237Z",
+            "date_modified": "2019-05-11T14:04:56.241Z"
+        }
+    },
+    {
+        "model": "ecommerce.orders",
+        "pk": 6,
+        "fields": {
+            "total_amount": "29.00",
+            "created_on": "2019-05-11T14:24:35.535Z",
+            "shipped_on": null,
+            "status": 0,
+            "comments": null,
+            "customer_id": null,
+            "auth_code": null,
+            "reference": null,
+            "shipping_id": null,
+            "tax_id": null,
+            "date_created": "2019-05-11T14:24:35.535Z",
+            "date_modified": "2019-05-11T14:24:35.540Z"
+        }
+    },
+    {
+        "model": "ecommerce.orders",
+        "pk": 7,
+        "fields": {
+            "total_amount": "29.00",
+            "created_on": "2019-05-11T14:25:09.412Z",
+            "shipped_on": null,
+            "status": 0,
+            "comments": null,
+            "customer_id": null,
+            "auth_code": null,
+            "reference": null,
+            "shipping_id": null,
+            "tax_id": null,
+            "date_created": "2019-05-11T14:25:09.412Z",
+            "date_modified": "2019-05-11T14:25:09.417Z"
+        }
+    },
+    {
+        "model": "ecommerce.orderdetail",
+        "pk": 2,
+        "fields": {
+            "order_id": 7,
+            "product_id": 3,
+            "quantity": 1,
+            "unit_cost": "14.50",
+            "attributes": [
+                2,
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.orderdetail",
+        "pk": 3,
+        "fields": {
+            "order_id": 7,
+            "product_id": 3,
+            "quantity": 1,
+            "unit_cost": "14.50",
+            "attributes": [
+                2,
+                6
+            ]
+        }
+    },
+    {
+        "model": "ecommerce.review",
+        "pk": 1,
+        "fields": {
+            "customer_id": 36,
+            "product_id": 1,
+            "review": "This is the thing",
+            "rating": 4,
+            "created_on": "2019-05-13T10:53:06.467Z"
+        }
+    },
+    {
+        "model": "ecommerce.review",
+        "pk": 2,
+        "fields": {
+            "customer_id": 36,
+            "product_id": 1,
+            "review": "This is the thing",
+            "rating": 4,
+            "created_on": "2019-05-13T11:24:25.315Z"
+        }
+    },
+    {
+        "model": "ecommerce.review",
+        "pk": 3,
+        "fields": {
+            "customer_id": 36,
+            "product_id": 1,
+            "review": "This is the thing",
+            "rating": 4,
+            "created_on": "2019-05-13T11:40:39.335Z"
+        }
+    }
+]
